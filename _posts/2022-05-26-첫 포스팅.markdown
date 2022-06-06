@@ -1,0 +1,64 @@
+---
+title: "첫 포스트입니다!"
+layout: post
+date: 2022-05-26 15:57
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- 시험용
+star: true
+category: blog
+author: 코린이
+description: 포스팅 기능 시험용 첫 포스트입니다!
+---
+
+## 베이직 포맷
+기본적으로 글은 전부 이렇게 씁니다.
+
+## 강조
+# 짱큰 강조
+## 덜큰 강조
+### 작은 강조
+#### 짱 작은 강조
+
+## 리스트
+1. 첫번째
+2. 두식이
+3. 석삼
+
+* 이
+* 얼
+* 싼
+* 쓰
+
+## 인용
+설명에 추가로
+> 부연 설명을 달 수 있습니다.
+
+## URL
+글씨에 [링크](https://rabent.github.io/)를 달 수 있습니다.
+
+## 분리선
+다른 글들과 분리해주는 선을 만들어줍니다.
+
+---
+
+## 사진
+![spaghetti](https://user-images.githubusercontent.com/72433154/170440215-ea662f29-4729-4e07-a152-e6923169fc76.jpg)
+사진도 물론 넣을 수 있습니다.
+
+![spaghetti](https://user-images.githubusercontent.com/72433154/170440215-ea662f29-4729-4e07-a152-e6923169fc76.jpg)
+<figcaption class="caption">코린이가 방금 짜온 코드.jpg</figcaption>
+사진에 설명도 넣을 수 있습니다.
+
+## 코드
+{% highlight c++ %}
+#include <iostream>
+#using namespace std;
+
+int main(void) {
+    cout << "hello markdown!" ;
+}
+{% endhighlight %}
+
+코드도 넣을 수 있습니다.

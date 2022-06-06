@@ -10,15 +10,15 @@ mode: dark # default theme "dark" | "light"
 
 # Profile settings
 author:
-  name: 코린이 # author name
+  name: 코린이의 코드뭉치 # author name
   bio: >- # tell to the world
-    코딩 어려워요.
+    스파게티 코드들을 구겨서 올려놓는 곳
   username: rabent # general username
   github: rabent # github username
   twitter: twitter_username # twitter username
   facebook: facebook_username # facebook username
-  email: your-email@email.com # email adress
-  avatar: /assets/img/avatar.jpg # change with your own avatar
+  email: rabent0207@email.com # email adress
+  avatar: /assets/img/spaghetti.jpg # change with your own avatar
 
 # URL settings
 url: "https://rabent.github.io" #
