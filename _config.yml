@@ -3,7 +3,7 @@ title: 코린이의 코드뭉치 # site title
 description: >- # site description
   스파게티 코드들을 구겨서 올려놓는 곳
 lang: kr # default lang
-timezone: Asia/Korea # set your timezone
+timezone: Asia/Seoul # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
 repo: https://github.com/rabent/ # site repo [optional]
 mode: dark # default theme "dark" | "light"
