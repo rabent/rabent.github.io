@@ -1,13 +1,11 @@
 ---
-title: Acknowledgment
+title: 코린이의 깨달음
 permalink: /thanks/
 layout: page
-excerpt: Thanks to amazing people that i met, who help me out from follishness, connecting me with another good person, giving some advice when i'm at a bad things, pulling me from ordinary to be great.
+excerpt: 프로그램엔 문제가 없어요.
 comments: false
 ---
 
-Thanks to amazing people that i met, who help me out from follishness, connecting me with another good person, giving some advice when i'm at a bad things, pulling me from ordinary to be great.
-
-<hr>
-
-Hopefully the knowledge that I got from them can be useful, and become a charity for them, Aamiin.
+짧디 짧은 코딩생활 중에 깨달은게 딱 두가지 있습니다.
+첫째는 프로그램엔 문제가 없다는거에요. 니가 문제지.
+둘째는 시키는대로 좀 하라는거에요. 이렇게 해도 되는거 아닌가? 안되요.
