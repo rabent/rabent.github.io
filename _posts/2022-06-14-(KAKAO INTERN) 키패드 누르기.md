@@ -79,7 +79,7 @@ numbers | hand | result
 
 # 코드
 
-{% highlight c++}
+{% highlight c++ %}
 #include <string>
 #include <vector>
 #include <queue>
