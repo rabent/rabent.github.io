@@ -1,5 +1,5 @@
 ---
-title: "(KAKAO 인턴) 키패드 누르기"
+title: "(KAKAO INTERN) 키패드 누르기"
 layout: post
 date: 2022-06-14 13:50
 tag:
