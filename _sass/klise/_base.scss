@@ -301,6 +301,13 @@ u {
   text-decoration-color: #d2c7c7;
 }
 
+img + em {
+  display: block;
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
+}
+
 // Small
 small {
   font-size: $small-font-size;
