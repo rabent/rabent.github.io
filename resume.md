@@ -1,5 +1,5 @@
 ---
-title: 포트폴리오
+title: PORTFOLIO
 permalink: /resume/
 layout: page
 excerpt: 
