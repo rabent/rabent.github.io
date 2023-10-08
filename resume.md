@@ -42,7 +42,7 @@ comments: false
 프로젝트는 기존 보드게임인 오목에 카드와 마법 요소를 추가한 'Oh-Mok!'으로 링크로 들어가시면 관련 코드와 경험에 대해 서술한 글로 이동하여 보실 수 있습니다.  
 첫 프로젝트였던만큼 게임 개발이 어떻게 이루어지는지, 유니티와 C#의 기초와 응용 등 정말 많은 것을 배울 수 있던 프로젝트였습니다.
 
-[클릭 시](https://rabent.github.io/Oh-Mok!/) 블로그 내 포스팅으로 이동합니다.
+[클릭 시](https://rabent.github.io/Oh-Mok!/) 블로그 내 포스팅으로 이동합니다.  
 [Github 링크](https://github.com/nilbace/Oh-MOK)  
 [Play store 링크](https://play.google.com/store/apps/details?id=com.ExPStudio.magical)
 
@@ -59,7 +59,7 @@ comments: false
 ---
 
 <details>
-<summary>접기/펼치기</summary>
+<summary>UI타이머 구현</summary>
 <div markdown="1">
 
 {% highlight c# %}
@@ -107,5 +107,80 @@ void Update() {
 
 ![timer.gif](/assets/img/timer.gif)
 
-*Unity UI의 fill image 기능을 사용하여 시계바늘이 회전하여 지나간 자리는 빨간색으로 채워주는 타이머를 구현하여 각 턴의 제한시간을 볼 수 있게 하였습니다. (녹화 프로그램 상의 문제로 빨간색이 깨져나옴) 기획 쪽의 의견으로 타이머의 위치를 자신의 턴일 때는 자신 캐릭터 옆에, 상대 턴일땐 상대 캐릭터 옆에 생성시키도록 하였습니다.*
+*Unity UI의 fill image 기능을 사용하여 시계바늘이 회전하여 지나간 자리는 빨간색으로 채워주는 타이머를 구현하여 각 턴의 제한시간을 볼 수 있게 하였습니다. 
+(녹화 프로그램 상의 문제로 빨간색이 깨져나옴) 
+기획 쪽의 의견으로 타이머의 위치를 자신의 턴일 때는 자신 캐릭터 옆에, 상대 턴일땐 상대 캐릭터 옆에 생성시키도록 하였습니다.*
 
+<details>
+<summary>Dotween을 이용한 애니메이션</summary>
+<div markdown="1">
+{% highlight c# %}
+void dolmove(Image img) { //돌 5개가 모이면 가운데 돌로 돌들이 이동하는 애니메이션
+    Vector3 tmp=img.transform.position;
+    Sequence seq=DOTween.Sequence();
+    seq.Join(img.transform.DOMove(charging.center,0.75f));
+    seq.Join(img.transform.DOScale(new Vector3(0,0,0),3f));
+    seq.Join(img.DOFade(0, 2f).SetEase(Ease.InQuad));
+    seq.Append(img.transform.DOMove(tmp,0));
+    seq.Join(img.transform.DOScale(new Vector3(1,1,1),0));
+}
+{% endhighlight %}
+</div>
+</details>
+
+<details>
+<summary>Photon 서버를 통해 결과를 구분</summary>
+<div markdown="1">
+{% highlight c# %}
+if(PhotonNetwork.IsMasterClient)  // 검은 돌이 오목을 완성한 경우. 내가 MasterClient이면 내가 검은 돌을 두는 사람이므로 내가 공격에 성공한 것임 → 상대방 HP를 깎음
+    {
+        StartCoroutine(enemyshoot()); //충돌 시 폭발하는 파티클 투사체를 상대 캐릭터를 향해 발사함
+        PlayerManager.enemyPlayerManager.GetDamaged();
+    }
+    else
+    {
+        StartCoroutine(myshoot()); //투사체를 내 캐릭터를 향해 발사함
+        PlayerManager.myPlayerManager.GetDamaged();
+    }
+{% endhighlight %}
+</div>
+</details>
+
+<details>
+<summary>Unity의 particle 시스템을 사용한 구현</summary>
+<div markdown="1">
+{% highlight c# %}
+using System.Collections;
+using UnityEngine;
+[RequireComponent(typeof(ParticleSystem))]
+public class charging : MonoBehaviour {
+	ParticleSystem ps;
+	ParticleSystem.Particle[] m_Particles;
+	public static Vector3 center;
+	float speed = 5f;
+	int numParticlesAlive;
+	void Start () {
+		ps = GetComponent<ParticleSystem>();
+		if (!GetComponent<Transform>()){
+			GetComponent<Transform>();
+		}
+	}
+	void Update () {
+		m_Particles = new ParticleSystem.Particle[ps.main.maxParticles];
+		numParticlesAlive = ps.GetParticles(m_Particles);
+		float step = speed * Time.deltaTime;
+		for (int i = 0; i < numParticlesAlive; i++) {
+			m_Particles[i].position = Vector3.LerpUnclamped(m_Particles[i].position, center, step);
+		}
+		ps.SetParticles(m_Particles, numParticlesAlive);
+	}
+}
+{% endhighlight %}
+</div>
+</details>
+
+![particle.gif](/assets/img/part.gif)
+*오목 게임인 만큼 돌 5개가 이어지게 만들면 5개가 완성됬음을 알려주는 이펙트와 함께 상대를 타격하여 데미지를 주는 이펙트가 필요했습니다.  
+Unity의 인기 에셋인 Dotween을 사용하여 돌 5개가 이어졌을 때 돌들이 가운데 돌로 모이는 애니메이션을 제작하였고  
+Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이 한 점으로 모이는 애니메이션을 제작하여 돌이 가운데로 입자와 함께 모이는 애니메이션,  
+그리고 애니메이션이 끝나면 상대 초상화로 목적지가 지정된 입자들이 날아가 상대 초상화와 충돌판정이 일어나면 폭발 애니메이션을 재생하는 효과를 제작하였습니다.*
