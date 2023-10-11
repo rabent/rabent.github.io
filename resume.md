@@ -58,6 +58,8 @@ comments: false
 ## 코드
 ---
 
+### Oh-Mok! 주요 구현
+
 <details>
 <summary>UI타이머 구현</summary>
 <div markdown="1">
@@ -107,8 +109,8 @@ void Update() {
 
 ![timer.gif](/assets/img/timer.gif)
 
-*Unity UI의 fill image 기능을 사용하여 시계바늘이 회전하여 지나간 자리는 빨간색으로 채워주는 타이머를 구현하여 각 턴의 제한시간을 볼 수 있게 하였습니다. 
-(녹화 프로그램 상의 문제로 빨간색이 깨져나옴) 
+*Unity UI의 fill image 기능을 사용하여 시계바늘이 회전하여 지나간 자리는 빨간색으로 채워주는 타이머를 구현하여 각 턴의 제한시간을 볼 수 있게 하였습니다.  
+(녹화 프로그램 상의 문제로 빨간색이 깨져나옴)  
 기획 쪽의 의견으로 타이머의 위치를 자신의 턴일 때는 자신 캐릭터 옆에, 상대 턴일땐 상대 캐릭터 옆에 생성시키도록 하였습니다.*
 
 <details>
@@ -184,3 +186,57 @@ public class charging : MonoBehaviour {
 Unity의 인기 에셋인 Dotween을 사용하여 돌 5개가 이어졌을 때 돌들이 가운데 돌로 모이는 애니메이션을 제작하였고  
 Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이 한 점으로 모이는 애니메이션을 제작하여 돌이 가운데로 입자와 함께 모이는 애니메이션,  
 그리고 애니메이션이 끝나면 상대 초상화로 목적지가 지정된 입자들이 날아가 상대 초상화와 충돌판정이 일어나면 폭발 애니메이션을 재생하는 효과를 제작하였습니다.*
+
+<details>
+<summary>Unity의 particle 시스템을 사용한 구현</summary>
+<div markdown="1">
+{% highlight c# %}
+[PunRPC] void cardsyncro(int[] indexs) {
+    PlayerManager.enemyPlayerManager.cardDataBuffer=new List<CardData>(100); 
+    for(int i=0; i<indexs.Length; i++) {
+        CardData item = PlayerManager.enemyPlayerManager.cardDataSO.items[indexs[i]];
+        PlayerManager.enemyPlayerManager.cardDataBuffer.Add(item); // 상대 클라이언트에서 보이는 나의 손패를 실제 내 클라이언트에서의 나의 손패와 동기화시킴
+    }
+    PlayerManager.enemyPlayerManager.AddFiveCard();
+}
+
+public void draw() 
+    {
+        PlayerManager.myPlayerManager.character_img.GetComponent<SpriteRenderer>().sprite=PlayerManager.myPlayerManager.drawimg; //캐릭터 초상화를 화해제안 이미지로 교체
+        PlayerManager.myPlayerManager.character_img.GetComponent<SpriteRenderer>().transform.localScale=new Vector3(0.15f,0.15f,0.15f);
+        PlayerManager.myPlayerManager.drawready=true;
+        this.gameObject.GetComponent<AudioSource>().Play(); //화해제안 효과음을 play
+        PV.RPC("drawsyncro", RpcTarget.OthersBuffered);
+        if(PlayerManager.myPlayerManager.drawready==true && PlayerManager.enemyPlayerManager.drawready==true) {
+            GameManager.instance.draw();
+            PV.RPC("drawstop", RpcTarget.AllBuffered); //양쪽 모두 화해 버튼을 눌렀을 시 게임을 종료하고 무승부 결과창을 띄움
+        }    
+    }
+
+[PunRPC] void drawsyncro() { //상대 클라이언트에 내 클라이언트에서 화해 버튼을 누른 결과를 동기화하는 함수
+    this.gameObject.GetComponent<AudioSource>().Play();
+    PlayerManager.enemyPlayerManager.character_img.GetComponent<SpriteRenderer>().sprite=PlayerManager.enemyPlayerManager.drawimg;
+    PlayerManager.enemyPlayerManager.character_img.GetComponent<SpriteRenderer>().transform.localScale=new Vector3(0.15f,0.15f,0.15f);
+    PlayerManager.enemyPlayerManager.drawready=true;
+}
+{% endhighlight %}
+
+![draw.gif](/assets/img/draw.gif)
+*Photon 서버를 이용하여 상대의 클라이언트와 나의 클라이언트의 손패를 동기화시키는 코드입니다.  
+또한 기획상 화해 버튼을 누르면 상대가 알게되고 양쪽 모두 화해 버튼을 누를 수 무승부로 끝나는 시스템을  
+구현하기 위해 Photon 서버를 사용하여 한쪽에서 화해 버튼을 누를 시 상대 클라이언트를 변화시키도록 구현하였습니다.*
+
+### 젬스톤 서바이버
+
+상기한 코드들과 달리 젬스톤 서바이버에서는 메인 프로그래머를 담당했기에 구현을 전부 게시하기가 어려워 [깃허브 링크](https://github.com/rabent/gemstone)를 첨부하였습니다.  
+대신 스크립트간의 관계를 간략히 볼 수 있는 클래스 다이어그램을 staruml으로 만들었습니다. ui등 간단한 기능은 생략하였습니다.  
+
+![클래스 다이어그램](/assets/img/클래스%20다이어그램.PNG)
+
+저희 게임은 로그라이크 핵앤슬래시 게임으로 playermanager이 관리하는 캐릭터가 invenmanager가 관리하는 인벤토리의 석판에 젬을 장착하여 스킬을 사용합니다.  
+적은 미리 정해진 SpawnData의 수치대로 초기화된 후 Spawner를 통해 필드에 소환됩니다. GemSpawner는 Enemy가 사망하면 Dead함수에서 젬 리스트중 하나를 자리에 스폰합니다.  
+인벤토리는 여러개의 slot과 slot이 달린 석판으로 이루어져 있습니다. slot은 Unity의 eventhandler 기능으로 내용물의 설명패널 띄우기, 드래그 앤 드랍을 통한 스왑을 지원합니다.  
+각 석판엔 weaponmanager이 붙어있어 석판의 slot에 담긴 액티브 젬과 패시브 젬을 모두 취합한 결과를 젬의 종류에 따라 투사체, 마법 등 다르게 사용하게 됩니다.  
+투사체, enemy, 마법 등 계속해서 생성이 필요한 오브젝트는 poolmanager에서 pool에 없다면 생성하고 pool에 있지만 inactive된 오브젝트는 다시 active하여 가져옵니다.  
+게임의 라운드가 끝나면 gamemanager가 UImanager를 참조하여 상점 페이즈를 시작합니다. shopmanager가 관리하는 상점 페이즈에서는 골드를 소모하여 인벤토리 석판의 잠긴 슬롯을 개방할 수 있습니다.  
+게임을 처음부터 개발해본 경험이 없어 Bottom-up 방식으로 개발되었습니다.
