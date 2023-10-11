@@ -188,7 +188,7 @@ Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이
 그리고 애니메이션이 끝나면 상대 초상화로 목적지가 지정된 입자들이 날아가 상대 초상화와 충돌판정이 일어나면 폭발 애니메이션을 재생하는 효과를 제작하였습니다.*
 
 <details>
-<summary>Unity의 particle 시스템을 사용한 구현</summary>
+<summary>Photon 서버를 통한 클라이언트의 동기화</summary>
 <div markdown="1">
 {% highlight c# %}
 [PunRPC] void cardsyncro(int[] indexs) {
@@ -220,6 +220,8 @@ public void draw()
     PlayerManager.enemyPlayerManager.drawready=true;
 }
 {% endhighlight %}
+</div>
+</details>
 
 ![draw.gif](/assets/img/draw.gif)
 *Photon 서버를 이용하여 상대의 클라이언트와 나의 클라이언트의 손패를 동기화시키는 코드입니다.  
