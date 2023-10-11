@@ -12,8 +12,8 @@ comments: false
 
 ## Contact & Blog
 ---
-+ Email | rabent0207@gmail.com
-+ Blog | rabent.github.io
++ Email \| rabent0207@gmail.com
++ Blog \| rabent.github.io
 
 ## 목차
 ---
@@ -61,7 +61,7 @@ comments: false
 ### Oh-Mok! 주요 구현
 
 <details>
-<summary>UI타이머 구현</summary>
+<summary>UI타이머 구현(클릭 시 접기/펼치기)</summary>
 <div markdown="1">
 
 {% highlight c# %}
@@ -114,7 +114,7 @@ void Update() {
 기획 쪽의 의견으로 타이머의 위치를 자신의 턴일 때는 자신 캐릭터 옆에, 상대 턴일땐 상대 캐릭터 옆에 생성시키도록 하였습니다.*
 
 <details>
-<summary>Dotween을 이용한 애니메이션</summary>
+<summary>Dotween을 이용한 애니메이션(클릭 시 접기/펼치기)</summary>
 <div markdown="1">
 {% highlight c# %}
 void dolmove(Image img) { //돌 5개가 모이면 가운데 돌로 돌들이 이동하는 애니메이션
@@ -131,7 +131,7 @@ void dolmove(Image img) { //돌 5개가 모이면 가운데 돌로 돌들이 이
 </details>
 
 <details>
-<summary>Photon 서버를 통해 결과를 구분</summary>
+<summary>Photon 서버를 통해 결과를 구분(클릭 시 접기/펼치기)</summary>
 <div markdown="1">
 {% highlight c# %}
 if(PhotonNetwork.IsMasterClient)  // 검은 돌이 오목을 완성한 경우. 내가 MasterClient이면 내가 검은 돌을 두는 사람이므로 내가 공격에 성공한 것임 → 상대방 HP를 깎음
@@ -149,7 +149,7 @@ if(PhotonNetwork.IsMasterClient)  // 검은 돌이 오목을 완성한 경우. �
 </details>
 
 <details>
-<summary>Unity의 particle 시스템을 사용한 구현</summary>
+<summary>Unity의 particle 시스템을 사용한 구현(클릭 시 접기/펼치기)</summary>
 <div markdown="1">
 {% highlight c# %}
 using System.Collections;
@@ -188,7 +188,7 @@ Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이
 그리고 애니메이션이 끝나면 상대 초상화로 목적지가 지정된 입자들이 날아가 상대 초상화와 충돌판정이 일어나면 폭발 애니메이션을 재생하는 효과를 제작하였습니다.*
 
 <details>
-<summary>Photon 서버를 통한 클라이언트의 동기화</summary>
+<summary>Photon 서버를 통한 클라이언트의 동기화(클릭 시 접기/펼치기)</summary>
 <div markdown="1">
 {% highlight c# %}
 [PunRPC] void cardsyncro(int[] indexs) {
