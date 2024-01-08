@@ -242,5 +242,7 @@ public void draw()
 투사체, enemy, 마법 등 계속해서 생성이 필요한 오브젝트는 poolmanager에서 pool에 없다면 생성하고 pool에 있지만 inactive된 오브젝트는 다시 active하여 가져옵니다.  
 게임의 라운드가 끝나면 gamemanager가 UImanager를 참조하여 상점 페이즈를 시작합니다. shopmanager가 관리하는 상점 페이즈에서는 골드를 소모하여 인벤토리 석판의 잠긴 슬롯을 개방할 수 있습니다.  
 게임을 처음부터 개발해본 경험이 없어 Bottom-up 방식으로 개발되었습니다.  
+
 ---  
+  
 이외에 [링크](https://rabent.github.io/archive/)를 클릭하시면 블로그의 다른 포스팅도 열람하실 수 있습니다. 감사합니다. 
