@@ -248,11 +248,256 @@ random 함수를 통해 정해진 범위 내의 난수를 생성, gemspawner 스
 
 ![젬 이동](/assets/img/젬%20이동.gif)  
 
+<details>
+<summary>관련 코드(클릭 시 접기/펼치기)</summary>
+<div markdown="1">
+{% highlight c# %}
+public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+{
+    [SerializeField]
+   private gemData pgem;
+   public Image slot_img;
+   public bool islock=false;
+   public bool isfull=false;
+   public bool begin_mono=false;
+   public int slot_index;
+   public GameObject pannel;
+   public TMP_Text title;
+   public TMP_Text explain;
+   public TMP_Text tags;
+
+   public gemData g { //젬 데이터가 있다면 투명화를 해제
+    get {return pgem;}
+    set {
+        pgem=value;
+        if(pgem==null) {
+            slot_img.color=new Color(1,1,1,0);
+            isfull=false;
+        }
+        else {
+            isfull=true;
+            slot_img.sprite=g.spr;
+            slot_img.color=new Color(1,1,1,1);
+        }
+        
+    }
+   }
+
+   void OnDisable() {
+    pannel.SetActive(false);
+   }
+
+    public void OnPointerClick(PointerEventData eventData) {
+        if(eventData.button==PointerEventData.InputButton.Right) {
+            if(this.g!=null) {
+                g=null;
+                gamemanager.instance.gold+=10;
+                invenmanager.inventory.gemlist_refresh();
+            }
+        }
+    }
+
+   public void OnPointerEnter(PointerEventData eventData) {
+    //마우스 올리면 젬의 정보 패널을 띄움
+        if(this.isfull) {
+            pannel.SetActive(true);
+            title.text=g.gem_name;
+            explain.text=g.gem_explain;
+            string str="";
+            foreach(string s in g.tags) {
+                str+=s + ",";
+            }
+            if(g.ispassive) {
+                foreach(string s in g.required_tag) {
+                    str+="<color=#800000ff><b>" + s + "</b></color>" + ",";
+                }
+            }
+            str=str.Remove(str.Length - 1, 1);
+            this.tags.text=str;
+            Debug.Log("mouse enter");
+        }
+   }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        //마우스 뗐을 때 창 사라짐
+        if(pannel.activeSelf==true) {
+            pannel.SetActive(false);
+            Debug.Log("mouse exit");
+        }
+    }
+
+   
+    public void OnBeginDrag(PointerEventData eventData)
+    { //슬롯에 젬이 있을시 슬롯을 클릭하면 draggedslot에 그 슬롯의 데이터를 복사해서 넘겨줌
+        pannel.SetActive(false);
+        if(isfull && !islock) {
+            if(this.gameObject.tag=="monoslot") begin_mono=true;
+            draggedslot.instance.dragslot=this;
+            draggedslot.instance.dragset(slot_img);
+            draggedslot.instance.transform.position=eventData.position;
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    { //마우스 이동에 따라 draggedslot이 이동
+        if(isfull && !islock) {
+            draggedslot.instance.transform.position=eventData.position;
+        }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    { //드래그가 끝났을 시 처음에 클릭했던 슬롯에서 발동하는 함수
+    //드래그의 종착점이 monolith인지, 다른 슬롯인지에 따라서 필요한 절차를 진행
+        if(draggedslot.instance.is_monolith==true && draggedslot.instance.is_change==false && !islock) {
+            this.g=null;
+            invenmanager.inventory.gemlist[slot_index]=null;
+            draggedslot.instance.is_monolith=false;
+        }
+        else if(draggedslot.instance.is_change==true && !islock) {
+            Debug.Log(draggedslot.instance.change_gd);
+            this.g=draggedslot.instance.change_gd;
+            int idx=draggedslot.instance.change_idx;
+            if(draggedslot.instance.is_monolith) {
+                invenmanager.inventory.gemlist[slot_index]=draggedslot.instance.change_gd;
+                draggedslot.instance.is_monolith=false;
+            }
+            else {
+                invenmanager.inventory.gemlist[idx]=this.g;
+                if(!begin_mono) invenmanager.inventory.gemlist[slot_index]=draggedslot.instance.change_gd;
+            }
+            draggedslot.instance.change_gd=null;
+            draggedslot.instance.change_idx=-1;
+            draggedslot.instance.is_change=false;
+        }
+        if(begin_mono && !islock) {
+             foreach(GameObject mono in invenmanager.inventory.monoliths) {
+                mono.GetComponent<weaponmanager>().monolith_reset();
+            }
+        }
+        draggedslot.instance.drag_invisible(0);
+        draggedslot.instance.dragslot=null;
+        begin_mono=false;
+        invenmanager.inventory.gemlist_refresh();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    { //enddrag보다 먼저 발동하는 함수로 드래그가 끝난 위치에 있는 슬롯에서 발동
+    //드래그가 끝난 위치가 monolith라면 젬데이터를 monolith로 넘겨주고 refresh
+    //드래그가 끝난 위치가 다른 슬롯이라면 그 슬롯에 draggedslot의 데이터를 넘기고 슬롯의 데이터를 받아옴
+        if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="monoslot" && !islock) {
+            if(this.g!=null) {
+                draggedslot.instance.change_idx=this.slot_index;
+                draggedslot.instance.change_gd=this.g;
+                draggedslot.instance.is_change=true;
+            }
+            this.g=draggedslot.instance.dragslot.g;
+            foreach(GameObject mono in invenmanager.inventory.monoliths) {
+                mono.GetComponent<weaponmanager>().monolith_reset();
+            }
+            draggedslot.instance.is_monolith=true;
+        }
+        else if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="slot" && !islock) {
+            draggedslot.instance.change_idx=this.slot_index;
+            draggedslot.instance.change_gd=this.g;
+            this.g=draggedslot.instance.dragslot.g;
+            draggedslot.instance.is_change=true;
+        }
+    }
+}
+{% endhighlight %}
+</div>
+</details>
+
 *인벤토리는 유니티의 EventSystem의 IDragHandler 등의 인터페이스를 활용하여 구현하였습니다. OnDrag, OnDrop 등의 함수를 적절히 사용하여 인벤토리 내의 슬롯 간 데이터 이동을 가능케 했습니다.  
 인벤토리 오브젝트가 비활성화 되었을 때도 저는 캐릭터가 젬 오브젝트와 충돌 시에 인벤토리에 젬 데이터를 넣어주어야 하고, 인벤토리의 석판에 장착된 젬의 데이터대로 스킬을 발동시켜야 했습니다. 하지만 유니티에선 오브젝트가 비활성화되면 내부의 스크립트도 모두 침묵하므로 저는 UI에서의 인벤토리와 실제 인벤토리 내부의 데이터를 가진 데이터 배열로써의 인벤토리, 두 가지를 만들고 이 둘을 적절히 동기화해야 했습니다.  
 저는 인벤토리 UI를 활성화할 때와 UI를 비활성화할 때마다 두 부분을 동기화하는 시퀀스를 진행하여 해결하였습니다.*  
 
 ![젬 발동](/assets/img/스킬%20발동.gif)  
+
+<details>
+<summary>관련 코드(클릭 시 접기/펼치기)</summary>
+<div markdown="1">
+{% highlight c# %}
+public void monolith_reset() { //인벤토리에서 monolith에 젬을 장착시켰을 때
+    //슬롯의 젬 데이터를 monolith로 가져오는 함수
+        Debug.Log("gem set");
+        for(int i=0; i<3+slot_index; i++) { //향후 3을 열린 슬롯 개수로 수정
+            if(mono_slots[i].gameObject.activeSelf==true) {
+                gems[i]=mono_slots[i].g;
+            }
+        }
+    }
+
+    public void monolith_clear() { //공격의 중복발동을 방지하기 위해 공격 발동 전에 초기화해주는 함수
+        this.damage=0;
+        this.count=0;
+        this.prefabid=0;
+        this.gem_color=0;
+        this.speed=0;
+        this.radius=0;
+        this.penet=0;
+        this.element=0;
+        this.force=3;
+        this.delay_percent=1;
+        active_on=false;
+        curse.Clear();
+        tween.Kill();
+        if(crt!=null) StopCoroutine(crt);
+        if(spcrt!=null) special_manager.GetComponent<special>().StopCoroutine(spcrt);
+    }
+    public void monolith_active() {
+        monolith_clear();
+        //인벤토리를 끌 때 monolith가 가진 젬들을 계산하여 weaponmanager가 최종적으로 스킬을 발동함
+        for(int i=0; i<gems.Length; i++) {
+            if(gems[i]!=null) {
+                if(gems[i].isactive && i!=0) {
+                    gemData tmp=gems[0];
+                    gems[0]=gems[i];
+                    gems[i]=tmp;
+                } 
+            }
+        }
+        foreach(gemData gd in gems) {
+            if(gd==null) continue;
+            if(gd.isactive && !active_on) {
+                this.damage=gd.damage;
+                this.count=gd.count;
+                this.prefabid=gd.id;
+                this.gem_color=gd.color;
+                this.speed=gd.speed;
+                this.radius=gd.radius;
+                this.penet=gd.penet;
+                this.element=gd.element;
+                this.force=gd.force;
+                active_on=true;
+                skill_use();
+            }
+            else if(gd.ispassive) {
+                bool flag=true;
+                foreach(string s in gd.required_tag) {
+                    if(gems[0]!=null && !gems[0].tags.Contains(s)) flag=false;
+                }//필요 태그가 있는지를 검색
+                if(gd.required_tag.Contains("범용")) flag=true;
+                if(flag) {
+                    if(gd.curse!=0) curse.Add(gd.curse);
+                    this.damage+=gd.damage;
+                    this.speed*=gd.speed;
+                    this.radius*=gd.radius;
+                    this.penet+=gd.penet;
+                    this.count+=gd.count;
+                    this.element=gd.element;
+                    this.force+=gd.force;
+                    this.delay_percent*=gd.delay_reduct;
+                }
+            }
+            else if(gd.isspecial) {
+                spcrt=special_manager.GetComponent<special>().init(this);
+            }
+        }
+    }
+{% endhighlight %}
+</div>
+</details>
 
 *인벤토리 내에서 석판에 장착한 젬은 동기화 시퀀스에서 각 석판 하나씩을 담당하는 weapon매니저 스크립트에 전달됩니다. weapon매니저에서는 젬 배열을 전달받아 젬의 데이터대로 실제 인게임의 스킬을 발동하는 역할을 합니다.  
 weapon매니저는 하나의 액티브 젬과 액티브 젬을 강화하는 여러 패시브 젬을 장착할 수 있도록 구성되었습니다. 패시브 젬엔 검붉은 글씨로 강조되는 '필요 태그'가 있어 만약 액티브 젬이 '필요 태그'를 가지고 있다면 강화시켜주는 시스템입니다. 이 부분은 C#의 Array가 포함하고 있는 Contains 함수를 사용하여 구현하였습니다.  
