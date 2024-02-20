@@ -518,9 +518,7 @@ weapon매니저는 석판마다 하나씩 담당하기 때문에 다른 석판�
 
 ## 알고리즘, C++ 공부  
 
-<a herf="https://solved.ac/profile/rabent0207/", target="_blank">
-	<img src=http://mazassumnida.wtf/api/v2/generate_badge?boj=rabent0207>
-</a>
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=rabent0207)](https://solved.ac/rabent0207/)
 
 개발을 하며 부족함을 많이 느껴 학부 시절부터 계속 배워온 C++로 지속적으로 알고리즘 공부를 하고 있습니다.  
 [링크](https://rabent.github.io/archive/)를 클릭하시면 공부하며 포스팅한 내용들을 보실 수 있습니다.
