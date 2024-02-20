@@ -36,21 +36,27 @@ comments: false
 - C++
 - C#
 
-## 게임 출시 경험
+## 게임 개발 프로젝트 경험
 ---
-홍익대학교 내 게임 및 게임 개발 동아리인 EXP에서 반년간 프로젝트에 참여하여 구글 플레이 스토어에 출시까지 성공했던 경험이 있습니다.  
-프로젝트는 기존 보드게임인 오목에 카드와 마법 요소를 추가한 'Oh-Mok!'으로 Unity engine을 사용한 2인용 실시간 보드게임입니다.  
-링크로 들어가시면 관련 코드와 경험에 대해 서술한 글로 이동하여 보실 수 있습니다.  
+Oh-Mok!
+- Photon 서버를 이용한 1대1 오목 보드게임
+- 구글 플레이스토어 출시
+- 클라이언트 : Unity Engine
+- 서버 : Photon
+- 개발 기간 : 8개월
+- 관련 링크 :   
+[[블로그 내 포스팅]](https://rabent.github.io/Oh-Mok!/)
+[[Github 링크]](https://github.com/nilbace/Oh-MOK)  
+[[Play store 링크]](https://play.google.com/store/apps/details?id=com.ExPStudio.magical)
 
-[클릭 시](https://rabent.github.io/Oh-Mok!/) 블로그 내 포스팅으로 이동합니다.  
-[Github 링크](https://github.com/nilbace/Oh-MOK)  
-[Play store 링크](https://play.google.com/store/apps/details?id=com.ExPStudio.magical)
-
-## 프로젝트 경험
----
-대학교 졸업프로젝트로 핵앤슬래쉬 로그라이크 게임인 '젬스톤 서바이버'의 기획 및 메인 프로그래머로써 프로젝트를 총괄하였습니다.  
-'젬스톤 서바이버'는 평소 즐겨하던 게임인 'Path of Exile'과 '뱀파이어 서바이버'의 장점을 섞고 서로의 단점을 상쇄한 작품을 만들고 싶다는 생각으로 시작한 프로젝트입니다.  
-서브 프로그래머 1인과 함께 github 및 Unity engine으로 작업하였으며 장르는 로그라이트 핵앤슬래시 게임입니다.
+젬스톤 서바이버  
+- 정통 핵앤슬래시의 시스템을 접목한 로그라이트 핵앤슬래시 게임
+- 홍익대학교 졸업프로젝트
+- 클라이언트 : Unity Engine  
+- 개발 기간 : 10개월  
+- 관련 링크 :  
+[[깃허브 링크]](https://github.com/rabent/gemstone)  
+[[포스팅 링크]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)
 
 ## 코드
 ---
@@ -510,6 +516,11 @@ weapon매니저는 석판마다 하나씩 담당하기 때문에 다른 석판�
 골드는 Enemy를 쓰러뜨릴 때에 각 오브젝트 마다 정해진 수치가 들어옵니다. 잠긴 슬롯은 실제 젬 데이터를 OnDrop 등의 함수로 받는 slot 오브젝트를 비활성화 시키고 대신 금지 스프라이트를 활성화시켜 만든 것입니다.  
 잠금해제 페이즈에서 골드가 충분하다면 금지 스프라이트를 비활성화, slot 오브젝트를 활성화시켜 사용할 수 있도록 하고 골드가 부족하다면 골드 부족 알림을 띄우도록 구성하였습니다.*
 
----  
-  
-이외에 [링크](https://rabent.github.io/archive/)를 클릭하시면 c++을 사용한 문제 풀이 등의 블로그의 다른 포스팅도 열람하실 수 있습니다. 감사합니다. 
+## 알고리즘, C++ 공부  
+
+<a herf="https://solved.ac/profile/rabent0207/", target="_blank">
+	<img src=http://mazassumnida.wtf/api/v2/generate_badge?boj=rabent0207>
+</a>
+
+개발을 하며 부족함을 많이 느껴 학부 시절부터 계속 배워온 C++로 지속적으로 알고리즘 공부를 하고 있습니다.  
+[링크](https://rabent.github.io/archive/)를 클릭하시면 공부하며 포스팅한 내용들을 보실 수 있습니다.
