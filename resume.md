@@ -45,7 +45,7 @@ Oh-Mok!
 - 서버 : Photon
 - 개발 기간 : 8개월
 - 관련 링크 :   
-[[블로그 내 포스팅]](https://rabent.github.io/Oh-Mok!/)
+[[블로그 내 포스팅]](https://rabent.github.io/Oh-Mok!/)  
 [[Github 링크]](https://github.com/nilbace/Oh-MOK)  
 [[Play store 링크]](https://play.google.com/store/apps/details?id=com.ExPStudio.magical)
 
@@ -56,7 +56,7 @@ Oh-Mok!
 - 개발 기간 : 10개월  
 - 관련 링크 :  
 [[깃허브 링크]](https://github.com/rabent/gemstone)  
-[[포스팅 링크]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)
+[[포스팅 링크]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
 
 ## 코드
 ---
