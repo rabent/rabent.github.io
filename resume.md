@@ -231,7 +231,8 @@ public void draw()
 ### 젬스톤 서바이버 주요 구현
 
 [깃허브 링크](https://github.com/rabent/gemstone)  
-[포스팅 링크](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/) 링크를 누르시면 상세한 스크립트와 설명을 보실 수 있습니다.
+[포스팅 링크](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
+링크를 누르시면 상세한 스크립트와 설명을 보실 수 있습니다.
 
 아트팀이 따로 존재하지 않아 게임 내 모든 아트는 프리 에셋을 활용하여 제작되었습니다.  
 
