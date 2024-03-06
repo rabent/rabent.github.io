@@ -5,7 +5,7 @@ date: 2023-08-05 12:37
 tag:
 - game
 - 프로젝트
-- c#
+- C#
 - unity
 description: 졸업 프로젝트 'Gemstone Survivor' 중간 정리
 ---
