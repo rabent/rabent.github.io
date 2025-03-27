@@ -124,6 +124,8 @@ void Update() {
 </div>
 </details>  
 
+
+
 ![particle.gif](/assets/img/part.gif)  
 
 <details>
@@ -203,6 +205,8 @@ Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이
 </div>
 </details>  
 
+
+
 ![draw.gif](/assets/img/draw.gif)  
 
 <details>
@@ -251,7 +255,9 @@ public void draw()
 또한 기획 상 화해 버튼을 누르면 상대가 알게되고 양쪽 모두 화해 버튼을 누르면 무승부로 끝나는 시스템을 구현하기 위해 한쪽에서 화해 버튼을 누를 시 상대 클라이언트에도 해당 변화를 동기화시키고, 두 클라이언트에서 모두 화해 버튼을 눌렀을 시 게임을 무승부로 종료하는 함수를 구현했습니다.*  
 
 </div>
-</details>
+</details>  
+
+
 
 ### 젬스톤 서바이버 주요 구현
 
@@ -271,6 +277,8 @@ UI 등 간단한 기능들을 생략하고 전체적인 구조를 볼 수 있는
 
 </div>
 </details>  
+
+
 
 <details>
 <summary>게임의 전체적인 흐름</summary>
@@ -292,6 +300,8 @@ random 함수를 통해 정해진 범위 내의 난수를 생성, gemspawner 스
 
 </div>
 </details>  
+
+
 
 ![젬 이동](/assets/img/젬%20이동.gif)  
 
@@ -466,6 +476,8 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 </div>
 </details>  
 
+
+
 ![젬 발동](/assets/img/스킬%20발동.gif)  
 
 <details>
@@ -562,7 +574,9 @@ WeaponManager는 하나의 액티브 젬과 액티브 젬을 강화하는 여러
 WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 액티브 젬을 장착하면 동시에 스킬이 발동하여 캐릭터는 최대 4개의 스킬을 동시 사용할 수 있도록 시스템을 구현하였습니다.*  
 
 </div>
-</details>
+</details>  
+
+
 
 ![상점](/assets/img/상점.gif)  
 
@@ -576,6 +590,7 @@ WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 
 
 </div>
 </details>  
+
 
 ## 그 외  
 
