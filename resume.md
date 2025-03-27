@@ -28,13 +28,17 @@ comments: false
 ---
 + 홍익대학교 컴퓨터공학과 재학  (2017~)
 + 대학교 내 게임 제작 동아리 EXP에서 서브프로그래머로 프로젝트 참여
-+ 대학교 졸업 프로젝트 '젬스톤 서바이버'의 기획, 메인프로그래머로 총괄
++ 대학교 졸업 프로젝트 '젬스톤 서바이버'의 기획, 메인프로그래머로 활동  
 
 ## 기술 스택
 ---
 - Unity Engine
 - C++
-- C#
+- C#  
+- Mysql  
+- JAVA  
+- Spring  
+
 
 ## 게임 개발 프로젝트 경험
 ---
@@ -55,18 +59,23 @@ Oh-Mok!
 - 클라이언트 : Unity Engine  
 - 개발 기간 : 10개월  
 - 관련 링크 :  
-[[깃허브 링크]](https://github.com/rabent/gemstone)  
-[[포스팅 링크]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
+[[블로그 내 포스팅팅]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
+[[Github 링크]](https://github.com/rabent/gemstone)   
 
-## 코드
+## 활동 내용
 ---
 
-### Oh-Mok! 주요 구현
+### Oh-Mok! 주요 구현  
+
+![timer.gif](/assets/img/timer.gif)  
 
 <details>
 <summary>UI타이머 구현(클릭 시 접기/펼치기)</summary>
 <div markdown="1">
 
+<details>
+<summary>상세 코드</summary>
+<div markdown="2">
 {% highlight c# %}
 
 void Update() {
@@ -105,20 +114,27 @@ void Update() {
     time=0; //시간 초기화
 }
 
-{% endhighlight %}
+{% endhighlight %}  
 
 </div>
 </details>
 
-![timer.gif](/assets/img/timer.gif)
-
-*Unity UI의 fill image 기능을 사용하여 시계바늘이 회전하여 지나간 자리는 빨간색으로 채워주는 타이머를 구현하여 각 턴의 제한시간을 볼 수 있게 하였습니다.  
+*Unity UI의 fill image 기능을 사용하여 시계바늘이 회전하여 지나간 자리는 빨간색으로 채워주는 타이머를 구현하여 유저가 자신의 턴의 제한시간을 볼 수 있게 하고, 타이머가 끝까지 돌아가면 강제로 상대의 턴으로 넘어가는 로직을 구현하였습니다.  
 (녹화 프로그램 상의 문제로 빨간색이 깨져나옴)  
-기획 쪽의 의견으로 타이머의 위치를 자신의 턴일 때는 자신 캐릭터 옆에, 상대 턴일땐 상대 캐릭터 옆에 생성시키도록 하였습니다.*
+기획서대로 타이머의 위치를 자신의 턴일 때는 자신 캐릭터 옆에, 상대 턴일땐 상대 캐릭터 옆에 생성시키도록 하였습니다.*
+
+</div>
+</details>  
+
+![particle.gif](/assets/img/part.gif)  
 
 <details>
-<summary>Dotween을 이용한 애니메이션(클릭 시 접기/펼치기)</summary>
+<summary>Dotween, Particle System을 사용한 순차적 애니메이션과 vfx 구현</summary>
 <div markdown="1">
+
+<details>
+<summary>Dotween을 이용한 애니메이션 코드</summary>
+<div markdown="2">
 {% highlight c# %}
 void dolmove(Image img) { //돌 5개가 모이면 가운데 돌로 돌들이 이동하는 애니메이션
     Vector3 tmp=img.transform.position;
@@ -134,8 +150,8 @@ void dolmove(Image img) { //돌 5개가 모이면 가운데 돌로 돌들이 이
 </details>
 
 <details>
-<summary>Photon 서버를 통해 결과를 구분(클릭 시 접기/펼치기)</summary>
-<div markdown="1">
+<summary>Photon 서버를 통해 결과를 구분하는 코드</summary>
+<div markdown="2">
 {% highlight c# %}
 if(PhotonNetwork.IsMasterClient)  // 검은 돌이 오목을 완성한 경우. 내가 MasterClient이면 내가 검은 돌을 두는 사람이므로 내가 공격에 성공한 것임 → 상대방 HP를 깎음
     {
@@ -152,8 +168,8 @@ if(PhotonNetwork.IsMasterClient)  // 검은 돌이 오목을 완성한 경우. �
 </details>
 
 <details>
-<summary>Unity의 particle 시스템을 사용한 구현(클릭 시 접기/펼치기)</summary>
-<div markdown="1">
+<summary>Unity의 particle 시스템을 사용한 vfx 구현 코드</summary>
+<div markdown="2">
 {% highlight c# %}
 using System.Collections;
 using UnityEngine;
@@ -181,15 +197,24 @@ public class charging : MonoBehaviour {
 </div>
 </details>
 
-![particle.gif](/assets/img/part.gif)
 *오목 게임인 만큼 돌 5개가 이어지게 만들면 5개가 완성됬음을 알려주는 이펙트와 함께 상대를 타격하여 데미지를 주는 이펙트가 필요했습니다.  
-Unity의 인기 에셋인 Dotween을 사용하여 돌 5개가 이어졌을 때 돌들이 가운데 돌로 모이는 애니메이션을 제작하였고  
-Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이 한 점으로 모이는 애니메이션을 제작하여 돌이 가운데로 입자와 함께 모이는 애니메이션,  
-그리고 애니메이션이 끝나면 상대 초상화로 목적지가 지정된 입자들이 날아가 상대 초상화와 충돌판정이 일어나면 폭발 애니메이션을 재생하는 효과를 제작하였습니다.*
+Unity의 에셋인 Dotween을 사용하여 돌 5개가 이어졌을 때 돌들이 가운데 돌로 모이는 애니메이션을 제작하였고  
+Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이 한 점으로 모이는 애니메이션을 제작하여 돌이 가운데로 모이는 애니메이션 동시에 재생되도록 구현했습니다.  
+애니메이션이 끝나면 상대 초상화로 목적지가 지정된 입자들이 날아가 상대 초상화와 충돌판정이 일어나면 폭발 애니메이션을 재생하도록 구현했습니다.*  
+
+</div>
+</details>  
+
+![draw.gif](/assets/img/draw.gif)  
 
 <details>
 <summary>Photon 서버를 통한 클라이언트의 동기화(클릭 시 접기/펼치기)</summary>
-<div markdown="1">
+<div markdown="1">  
+
+<details>
+<summary>상세 코드</summary>
+<div markdown="2">  
+
 {% highlight c# %}
 [PunRPC] void cardsyncro(int[] indexs) {
     PlayerManager.enemyPlayerManager.cardDataBuffer=new List<CardData>(100); 
@@ -223,10 +248,12 @@ public void draw()
 </div>
 </details>
 
-![draw.gif](/assets/img/draw.gif)
-*Photon 서버를 이용하여 상대의 클라이언트와 나의 클라이언트의 손패를 동기화시키는 코드입니다.  
-또한 기획상 화해 버튼을 누르면 상대가 알게되고 양쪽 모두 화해 버튼을 누를 수 무승부로 끝나는 시스템을  
-구현하기 위해 Photon 서버를 사용하여 한쪽에서 화해 버튼을 누를 시 상대 클라이언트를 변화시키도록 구현하였습니다.*
+*2개의 클라이언트가 서버를 통해 실시간으로 통신하는 게임의 특성 상 한 쪽의 클라이언트의 정보를 다른 쪽의 클라이언트와 동기화 시키는 작업이 많았습니다.  
+먼저 상대가 카드를 사용하면 카드가 뒤집히는 애니메이션이 재생되어 상대가 어떤 카드를 사용했는지 알 수 있는 게임의 구조 상 두 클라이언트의 손패를 동기화하는 코드가 필요하여 구현했습니다.  
+또한 기획 상 화해 버튼을 누르면 상대가 알게되고 양쪽 모두 화해 버튼을 누르면 무승부로 끝나는 시스템을 구현하기 위해 한쪽에서 화해 버튼을 누를 시 상대 클라이언트에도 해당 변화를 동기화시키고, 두 클라이언트에서 모두 화해 버튼을 눌렀을 시 게임을 무승부로 종료하는 함수를 구현했습니다.*  
+
+</div>
+</details>
 
 ### 젬스톤 서바이버 주요 구현
 
@@ -234,11 +261,22 @@ public void draw()
 [포스팅 링크](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
 링크를 누르시면 상세한 스크립트와 설명을 보실 수 있습니다.
 
-아트팀이 따로 존재하지 않아 게임 내 모든 아트는 프리 에셋을 활용하여 제작되었습니다.  
+아트팀이 따로 존재하지 않아 게임 내 모든 아트는 프리 에셋과 생성형 AI를 활용하여 제작되었습니다.  
+
+<details>
+<summary>클래스 다이어그램을 통한 스크립트 도식화</summary>
+<div markdown="1">  
+
+![클래스 다이어그램](/assets/img/클래스%20다이어그램.PNG)  
 
 UI 등 간단한 기능들을 생략하고 전체적인 구조를 볼 수 있는 클래스 다이어그램을 staruml을 이용하여 제작하여 스크립트 간의 관계를 한 눈에 확인할 수 있도록 하였습니다.
 
-![클래스 다이어그램](/assets/img/클래스%20다이어그램.PNG)
+</div>
+</details>  
+
+<details>
+<summary>게임의 전체적인 흐름</summary>
+<div markdown="1">  
 
 ![캐릭터 선택](/assets/img/캐릭터%20선택.gif)  
 
@@ -254,11 +292,18 @@ UI 등 간단한 기능들을 생략하고 전체적인 구조를 볼 수 있는
 random 함수를 통해 정해진 범위 내의 난수를 생성, gemspawner 스크립트 내의 미리 저장된 젬 배열에서 하나를 선택하여 선택된 젬의 데이터를 가진 오브젝트를 Enemy 개체가 있던 자리에 생성합니다.  
 캐릭터와 젬 오브젝트가 충돌 시 젬의 데이터는 인벤토리 내의 슬롯에 저장되고 젬 오브젝트는 비활성화됩니다.*  
 
+</div>
+</details>  
+
 ![젬 이동](/assets/img/젬%20이동.gif)  
 
 <details>
+<summary>EventSystem을 활용한 인벤토리 구현</summary>
+<div markdown="1">  
+
+<details>
 <summary>관련 코드(클릭 시 접기/펼치기)</summary>
-<div markdown="1">
+<div markdown="2">
 {% highlight c# %}
 public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -416,15 +461,22 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 </div>
 </details>
 
-*인벤토리는 유니티의 EventSystem의 IDragHandler 등의 인터페이스를 활용하여 구현하였습니다. OnDrag, OnDrop 등의 함수를 적절히 사용하여 인벤토리 내의 슬롯 간 데이터 이동을 가능케 했습니다.  
-인벤토리 오브젝트가 비활성화 되었을 때도 저는 캐릭터가 젬 오브젝트와 충돌 시에 인벤토리에 젬 데이터를 넣어주어야 하고, 인벤토리의 석판에 장착된 젬의 데이터대로 스킬을 발동시켜야 했습니다. 하지만 유니티에선 오브젝트가 비활성화되면 내부의 스크립트도 모두 침묵하므로 저는 UI에서의 인벤토리와 실제 인벤토리 내부의 데이터를 가진 데이터 배열로써의 인벤토리, 두 가지를 만들고 이 둘을 적절히 동기화해야 했습니다.  
-저는 인벤토리 UI를 활성화할 때와 UI를 비활성화할 때마다 두 부분을 동기화하는 시퀀스를 진행하여 해결하였습니다.*  
+*인벤토리는 유니티의 EventSystem의 IDragHandler 등의 인터페이스를 활용하여 구현하였고 OnDrag, OnDrop 등의 함수를 적절히 사용하여 인벤토리 내의 슬롯 간 데이터 이동을 가능케 했습니다.  
+기획 상 인벤토리 객체가 비활성화 되었을 때도 캐릭터가 젬 오브젝트와 충돌하면 인벤토리에 젬 데이터를 추가해야 했고, 인벤토리의 석판에 장착된 젬의 데이터대로 스킬을 발동시켜야 했습니다. 하지만 유니티에선 오브젝트가 비활성화되면 내부의 스크립트도 모두 침묵하므로 제대로 작동하지 않는 문제가 있었습니다.  
+저는 UI에서의 인벤토리와 실제 인벤토리 내부의 데이터를 가진 데이터 배열로써의 인벤토리, 두 가지를 만들고 이 두 부분을 인벤토리를 닫을 때, 열 때 등의 타이밍에 적절히 동기화하는 방식으로 문제를 해결했습니다.*  
+
+</div>
+</details>  
 
 ![젬 발동](/assets/img/스킬%20발동.gif)  
 
 <details>
-<summary>관련 코드(클릭 시 접기/펼치기)</summary>
+<summary>인벤토리에서 장착한 객체의 스킬을 발동</summary>
 <div markdown="1">
+
+<details>
+<summary>관련 코드(클릭 시 접기/펼치기)</summary>
+<div markdown="2">
 {% highlight c# %}
 public void monolith_reset() { //인벤토리에서 monolith에 젬을 장착시켰을 때
     //슬롯의 젬 데이터를 monolith로 가져오는 함수
@@ -507,15 +559,26 @@ public void monolith_reset() { //인벤토리에서 monolith에 젬을 장착시
 </div>
 </details>
 
-*인벤토리 내에서 석판에 장착한 젬은 동기화 시퀀스에서 각 석판 하나씩을 담당하는 weapon매니저 스크립트에 전달됩니다. weapon매니저에서는 젬 배열을 전달받아 젬의 데이터대로 실제 인게임의 스킬을 발동하는 역할을 합니다.  
-weapon매니저는 하나의 액티브 젬과 액티브 젬을 강화하는 여러 패시브 젬을 장착할 수 있도록 구성되었습니다. 패시브 젬엔 검붉은 글씨로 강조되는 '필요 태그'가 있어 만약 액티브 젬이 '필요 태그'를 가지고 있다면 강화시켜주는 시스템입니다. 이 부분은 C#의 Array가 포함하고 있는 Contains 함수를 사용하여 구현하였습니다.  
-weapon매니저는 석판마다 하나씩 담당하기 때문에 다른 석판에 액티브 젬을 장착하면 동시에 스킬이 발동하여 캐릭터는 최대 4개의 스킬을 동시 사용할 수 있도록 시스템을 구현하였습니다.*  
+*인벤토리 내에서 석판에 장착한 젬은 동기화 시퀀스에서 각 석판 하나씩을 담당하는 WeaponManager 스크립트에 전달됩니다. WeaponManager에서는 젬 배열을 전달받아 젬의 데이터대로 실제 인게임의 스킬을 발동하는 역할을 합니다.  
+WeaponManager는 하나의 액티브 젬과 액티브 젬을 강화하는 여러 패시브 젬을 장착할 수 있도록 구성되었습니다. 패시브 젬엔 검붉은 글씨로 강조되는 '필요 태그'가 있어 만약 액티브 젬이 '필요 태그'를 가지고 있다면 액티브 젬의 스킬을 강화시켜주도록 구현했습니다. 이 부분은 C#의 Array가 포함하고 있는 Contains 함수를 사용하여 구현하였습니다.  
+WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 액티브 젬을 장착하면 동시에 스킬이 발동하여 캐릭터는 최대 4개의 스킬을 동시 사용할 수 있도록 시스템을 구현하였습니다.*  
+
+</div>
+</details>
 
 ![상점](/assets/img/상점.gif)  
 
+<details>
+<summary>상점 페이즈 구현</summary>
+<div markdown="1">
+
 *게임 내에서 4분마다 스폰되는 보스 Enemy를 쓰러뜨리면 스테이지가 끝나고 상점 페이즈에 진입합니다. 인벤토리 내의 석판은 시작할 때 슬롯이 3개가 열려있고 나머지 3개는 잠겨있는데, 상점에서 골드를 소모하여 잠금을 해제할 수 있습니다.  
 골드는 Enemy를 쓰러뜨릴 때에 각 오브젝트 마다 정해진 수치가 들어옵니다. 잠긴 슬롯은 실제 젬 데이터를 OnDrop 등의 함수로 받는 slot 오브젝트를 비활성화 시키고 대신 금지 스프라이트를 활성화시켜 만든 것입니다.  
-잠금해제 페이즈에서 골드가 충분하다면 금지 스프라이트를 비활성화, slot 오브젝트를 활성화시켜 사용할 수 있도록 하고 골드가 부족하다면 골드 부족 알림을 띄우도록 구성하였습니다.*
+잠금해제 페이즈에서 골드가 충분하다면 금지 스프라이트를 비활성화, slot 오브젝트를 활성화시켜 사용할 수 있도록 하고 골드가 부족하다면 골드 부족 알림을 띄우도록 구성하였습니다.*  
+
+</div>
+</details>  
+
 
 ## 알고리즘, C++ 공부  
 
