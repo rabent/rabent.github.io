@@ -665,7 +665,7 @@ jobs:
         run: |
           echo "${ { secrets.EC2_SSH_KEY } }" > SSH_key.pem
           chmod 600 SSH_key.pem
-          scp -i SSH_key.pem -o StrictHostKeyChecking=no /home/runner/work/toy-web/toy-web/bulid/libs/demo-0.0.1-SNAPSHOT.jar ${ { secrets.EC2_USERNAME } }@${{ secrets.EC2_IP } }:/home/${ { secrets.EC2_USERNAME } }/clone/toy-web/toy/build/libs/demo-0.0.1-SNAPSHOT.jar
+          scp -i SSH_key.pem -o StrictHostKeyChecking=no /home/runner/work/toy-web/toy-web/bulid/libs/demo-0.0.1-SNAPSHOT.jar ${ { secrets.EC2_USERNAME } }@${ { secrets.EC2_IP } }:/home/${ { secrets.EC2_USERNAME } }/clone/toy-web/toy/build/libs/demo-0.0.1-SNAPSHOT.jar
 
       - name: ssh pipelines
         uses: appleboy/ssh-action@master
