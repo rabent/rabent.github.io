@@ -713,7 +713,6 @@ CI/CD가 필요한 규모가 이니기도 하고 Continuous Integration의 경�
 </details>  
 &nbsp;
 
-
 ### 알고리즘, C++ 공부  
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=rabent0207)](https://solved.ac/rabent0207/)
