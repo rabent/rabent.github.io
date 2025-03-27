@@ -582,6 +582,8 @@ WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 
 
 ### 깃허브 액션을 통한 CI/CD  
 
+![성공](/assets/img/깃허브%20액션%20성공.png)  
+
 <details>
 <summary>gradle.yml</summary>
 <div markdown="1">
@@ -662,18 +664,18 @@ jobs:
         run: |
           echo "${{ secrets.EC2_SSH_KEY }}" > SSH_key.pem
           chmod 600 SSH_key.pem
-          scp -i SSH_key.pem -o StrictHostKeyChecking=no /home/runner/work/toy-web/toy-web/bulid/libs/demo-0.0.1-SNAPSHOT.jar ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_IP }}:/home/${{ secrets.EC2_USERNAME }}/clone/toy-web/toy/build/libs/demo-0.0.1-SNAPSHOT.jar
+          scp -i SSH_key.pem -o StrictHostKeyChecking=no /home/runner/work/toy-web/toy-web/bulid/libs/demo-0.0.1-SNAPSHOT.jar ${ { secrets.EC2_USERNAME } }@${{ secrets.EC2_IP } }:/home/${ { secrets.EC2_USERNAME } }/clone/toy-web/toy/build/libs/demo-0.0.1-SNAPSHOT.jar
 
       - name: ssh pipelines
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.EC2_IP }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          port: ${{ secrets.EC2_PORT }}
+          host: ${ { secrets.EC2_IP } }
+          username: ${ { secrets.EC2_USERNAME } }
+          key: ${ { secrets.EC2_SSH_KEY } }
+          port: ${ { secrets.EC2_PORT } }
           script: |
             cd /home/ubuntu/clone/toy-web/toy/build/libs
-            nohup java -jar demo-0.0.1-SNAPSHOT.jar /home/${{ secrets.EC2_USERNAME }}/log/app_log.out 2>&1 &
+            nohup java -jar demo-0.0.1-SNAPSHOT.jar /home/${ { secrets.EC2_USERNAME } }/log/app_log.out 2>&1 &
             exit
 {% endhighlight %}  
 
