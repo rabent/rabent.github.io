@@ -123,8 +123,8 @@ void Update() {
 
 </div>
 </details>  
-  
-
+&nbsp;
+&nbsp;
 
 ![particle.gif](/assets/img/part.gif)  
 
@@ -204,8 +204,8 @@ Unity의 Particle system을 사용하여 각 지점에서 생성된 입자들이
 
 </div>
 </details>  
-  
-  
+&nbsp;
+&nbsp;
 
 ![draw.gif](/assets/img/draw.gif)  
 
@@ -256,8 +256,8 @@ public void draw()
 
 </div>
 </details>  
-  
-  
+&nbsp;
+&nbsp;
 
 ### 젬스톤 서바이버 주요 구현
 
@@ -277,9 +277,8 @@ UI 등 간단한 기능들을 생략하고 전체적인 구조를 볼 수 있는
 
 </div>
 </details>  
-  
-  
-
+&nbsp;
+&nbsp;  
 <details>
 <summary>게임의 전체적인 흐름</summary>
 <div markdown="1">  
@@ -300,8 +299,8 @@ random 함수를 통해 정해진 범위 내의 난수를 생성, gemspawner 스
 
 </div>
 </details>  
-  
-  
+&nbsp;
+&nbsp; 
 
 ![젬 이동](/assets/img/젬%20이동.gif)  
 
@@ -475,8 +474,8 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 </div>
 </details>  
-  
-  
+&nbsp;
+&nbsp;
 
 ![젬 발동](/assets/img/스킬%20발동.gif)  
 
@@ -575,8 +574,8 @@ WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 
 
 </div>
 </details>  
-  
-  
+&nbsp;
+&nbsp;
 
 ![상점](/assets/img/상점.gif)  
 
@@ -712,7 +711,8 @@ CI/CD가 필요한 규모가 이니기도 하고 Continuous Integration의 경�
 
 </div>
 </details>  
-  
+&nbsp;
+
 
 ### 알고리즘, C++ 공부  
 
