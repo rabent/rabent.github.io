@@ -588,7 +588,7 @@ WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 
 <summary>gradle.yml</summary>
 <div markdown="1">
 
-{% highlight %}  
+{% highlight yml %}  
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
