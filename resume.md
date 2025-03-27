@@ -584,6 +584,105 @@ WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 
 
 ![성공](/assets/img/깃허브%20액션%20성공.png)  
 
+<details>
+<summary>gradle.yml</summary>
+<div markdown="1">
+
+```  
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    defaults :
+      run:
+       working-directory: ./toy
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name : chmod
+      run : chmod +x ./gradlew
+
+    # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
+    # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+
+    - name: Build with Gradle Wrapper
+      run: ./gradlew build
+
+    - name: Upload JAR Artifact
+      uses: actions/upload-artifact@v4
+      with: 
+        name: DemoJAR
+        path: toy/build/libs/demo-0.0.1-SNAPSHOT.jar
+
+    # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
+    # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
+    #
+    # - name: Setup Gradle
+    #   uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    #   with:
+    #     gradle-version: '8.9'
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download JAR Artifact
+        uses: actions/download-artifact@v4
+        with: 
+          name: DemoJAR
+          path: bulid/libs/
+
+      - name: Show structure of downloaded files
+        run: |
+          ls -alh /home/runner/work/toy-web/toy-web/bulid/libs
+
+      - name: Upload to EC2
+        run: |
+          echo "${ { secrets.EC2_SSH_KEY } }" > SSH_key.pem
+          chmod 600 SSH_key.pem
+          scp -i SSH_key.pem -o StrictHostKeyChecking=no /home/runner/work/toy-web/toy-web/bulid/libs/demo-0.0.1-SNAPSHOT.jar ${ { secrets.EC2_USERNAME } }@${{ secrets.EC2_IP } }:/home/${ { secrets.EC2_USERNAME } }/clone/toy-web/toy/build/libs/demo-0.0.1-SNAPSHOT.jar
+
+      - name: ssh pipelines
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${ { secrets.EC2_IP } }
+          username: ${ { secrets.EC2_USERNAME } }
+          key: ${ { secrets.EC2_SSH_KEY } }
+          port: ${ { secrets.EC2_PORT } }
+          script: |
+            cd /home/ubuntu/clone/toy-web/toy/build/libs
+            nohup java -jar demo-0.0.1-SNAPSHOT.jar /home/${ { secrets.EC2_USERNAME } }/log/app_log.out 2>&1 &
+            exit
+
+```
+
+</div>
+</details>  
 
 추후 있을 협업에서 반드시 필요한 경험이라 생각하여 CI/CD 툴 사용 및 서버 배포를 시도하게 되었습니다. 많은 시행착오가 있었지만 목표했던 부분을 구현하는데 성공하였고, 얕지만 CI/CD가 무엇이고 어떤 식으로 이루어지는지와 기술을 제대로 배우지 않고 사용하면 어떤 일이 벌어지는 지를 깨닫게 된 좋은 경험이었습니다.  
 
