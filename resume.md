@@ -713,9 +713,9 @@ CI/CD가 필요한 규모가 이니기도 하고 Continuous Integration의 경�
 </details>  
 &nbsp;
 
-### 알고리즘, C++ 공부  
+### 알고리즘 
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=rabent0207)](https://solved.ac/rabent0207/)
 
-개발을 하며 부족함을 많이 느껴 학부 시절부터 계속 배워온 C++로 지속적으로 알고리즘 공부를 하고 있습니다.  
+기본적인 문제 해결 능력을 키우기 위해 학부 시절부터 계속 배워온 C++로 백준, 프로그래머스, SWEA 등 다양한 플랫폼에서 알고리즘 풀이를 하고 있습니다.  
 [링크](https://rabent.github.io/archive/)를 클릭하시면 공부하며 포스팅한 내용들을 보실 수 있습니다.
