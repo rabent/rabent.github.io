@@ -588,7 +588,7 @@ WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 
 <summary>gradle.yml</summary>
 <div markdown="1">
 
-{% highlight yml %}  
+{% highlight yaml %}  
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -662,7 +662,7 @@ jobs:
 
       - name: Upload to EC2
         run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > SSH_key.pem
+          echo "${ { secrets.EC2_SSH_KEY } }" > SSH_key.pem
           chmod 600 SSH_key.pem
           scp -i SSH_key.pem -o StrictHostKeyChecking=no /home/runner/work/toy-web/toy-web/bulid/libs/demo-0.0.1-SNAPSHOT.jar ${ { secrets.EC2_USERNAME } }@${{ secrets.EC2_IP } }:/home/${ { secrets.EC2_USERNAME } }/clone/toy-web/toy/build/libs/demo-0.0.1-SNAPSHOT.jar
 
