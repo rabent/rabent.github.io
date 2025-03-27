@@ -59,7 +59,7 @@ Oh-Mok!
 - 클라이언트 : Unity Engine  
 - 개발 기간 : 10개월  
 - 관련 링크 :  
-[[블로그 내 포스팅팅]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
+[[블로그 내 포스팅]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
 [[Github 링크]](https://github.com/rabent/gemstone)   
 
 ## 활동 내용
@@ -120,7 +120,6 @@ void Update() {
 </details>
 
 *Unity UI의 fill image 기능을 사용하여 시계바늘이 회전하여 지나간 자리는 빨간색으로 채워주는 타이머를 구현하여 유저가 자신의 턴의 제한시간을 볼 수 있게 하고, 타이머가 끝까지 돌아가면 강제로 상대의 턴으로 넘어가는 로직을 구현하였습니다.  
-(녹화 프로그램 상의 문제로 빨간색이 깨져나옴)  
 기획서대로 타이머의 위치를 자신의 턴일 때는 자신 캐릭터 옆에, 상대 턴일땐 상대 캐릭터 옆에 생성시키도록 하였습니다.*
 
 </div>
@@ -579,8 +578,124 @@ WeaponManager는 석판마다 하나씩 담당하기 때문에 다른 석판에 
 </div>
 </details>  
 
+## 그 외  
 
-## 알고리즘, C++ 공부  
+### 깃허브 액션을 통한 CI/CD  
+
+<details>
+<summary>gradle.yml</summary>
+<div markdown="1">
+
+{% highlight %}  
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    defaults :
+      run:
+       working-directory: ./toy
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name : chmod
+      run : chmod +x ./gradlew
+
+    # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
+    # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+
+    - name: Build with Gradle Wrapper
+      run: ./gradlew build
+
+    - name: Upload JAR Artifact
+      uses: actions/upload-artifact@v4
+      with: 
+        name: DemoJAR
+        path: toy/build/libs/demo-0.0.1-SNAPSHOT.jar
+
+    # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
+    # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
+    #
+    # - name: Setup Gradle
+    #   uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    #   with:
+    #     gradle-version: '8.9'
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download JAR Artifact
+        uses: actions/download-artifact@v4
+        with: 
+          name: DemoJAR
+          path: bulid/libs/
+
+      - name: Show structure of downloaded files
+        run: |
+          ls -alh /home/runner/work/toy-web/toy-web/bulid/libs
+
+      - name: Upload to EC2
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY }}" > SSH_key.pem
+          chmod 600 SSH_key.pem
+          scp -i SSH_key.pem -o StrictHostKeyChecking=no /home/runner/work/toy-web/toy-web/bulid/libs/demo-0.0.1-SNAPSHOT.jar ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_IP }}:/home/${{ secrets.EC2_USERNAME }}/clone/toy-web/toy/build/libs/demo-0.0.1-SNAPSHOT.jar
+
+      - name: ssh pipelines
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_IP }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: ${{ secrets.EC2_PORT }}
+          script: |
+            cd /home/ubuntu/clone/toy-web/toy/build/libs
+            nohup java -jar demo-0.0.1-SNAPSHOT.jar /home/${{ secrets.EC2_USERNAME }}/log/app_log.out 2>&1 &
+            exit
+{% endhighlight %}  
+
+</div>
+</details>  
+
+추후 있을 협업에서 반드시 필요한 경험이라 생각하여 CI/CD 툴 사용 및 서버 배포를 시도하게 되었습니다. 많은 시행착오가 있었지만 목표했던 부분을 구현하는데 성공하였고, 얕지만 CI/CD가 무엇이고 어떤 식으로 이루어지는지와 기술을 제대로 배우지 않고 사용하면 어떤 일이 벌어지는 지를 깨닫게 된 좋은 경험이었습니다.  
+
+<details>
+<summary>상세 설명</summary>
+<div markdown="2">
+
+Spring을 배우던 중 배운 내용을 실제로 사용하고 프로젝트에 녹여내어 체득할 필요성을 느껴 토이프로젝트를 시작하게 되었습니다. 다른 분들은 어떤 식으로 진행하는지 여러 자료를 참고하던 중 토이프로젝트 수준에서도 CI/CD와 AWS로의 배포를 하는 것을 보고 나중에 있을 협업을 위해 저러한 경험이 필요하겠다고 생각하여 시도하게 되었습니다.  
+CI/CD가 필요한 규모가 이니기도 하고 Continuous Integration의 경우 여러 명의 팀원이 있어야 의미가 있다고 생각하지만 공부를 위해 시도하게 되었고, 목표는 git push를 트리거로 빌드와 테스트를 진행한 후 EC2 서버에 올려 배포하는 과정까지로 잡았습니다.  
+툴은 깃허브에서 제공하여 별다른 연동이 필요없고, 호환성이 좋으며 무엇보다 프리티어를 제공하는 이유로 github action을 선택하였고, 서버는 이러한 토이프로젝트에서 가장 범용적으로 사용되어 참고자료가 많으며 무엇보다 프리티어를 제공하는 EC2 서버를 사용하기로 결정했습니다.  
+결과적으로 build 과정에서는 빌드 후 만들어진 jar 파일을 artifact로 업로드 하고, deploy 과정에서 artifact를 다운로드하고 EC2 서버에 SCP로 업로드 후 SSH로 연결하여 실행하는 방식으로 성공적으로 구현되었습니다.  
+그 과정에서 SSH의 기본 포트가 22인 것을 모르고 헤메고, EC2 instance는 설정된 OS마다 SSH 접근 시 기본 username이 다른 것을 모르고 헤메는 등, 많은 시행착오를 겪었습니다. 그러면서 기술을 제대로 공부하지 않고 사용법만 배우면 어떤 일이 벌어지는 지를 깨닫게 된 좋은 경험이었다고 생각합니다.  
+
+</div>
+</details>  
+
+### 알고리즘, C++ 공부  
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=rabent0207)](https://solved.ac/rabent0207/)
 
