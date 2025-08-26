@@ -1,6 +1,6 @@
 ---
 title: PORTFOLIO
-permalink: /resume/
+permalink: /resume1/
 layout: page
 excerpt: 
 comments: false
