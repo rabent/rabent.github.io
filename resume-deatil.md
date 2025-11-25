@@ -53,29 +53,29 @@ Docker | Nginx | GitHub Actions CI/CD
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949.jpg" width="100%"/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949.jpg" width="100%" alt=""/><br/>
       <b>환자 행동 분석</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_01.jpg" width="100%"/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_01.jpg" width="100%" alt=""/><br/>
       <b>환자 건강 분석</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_02.jpg" width="100%"/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_02.jpg" width="100%" alt=""/><br/>
       <b>환자 행동 통계</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_03.jpg" width="100%"/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_03.jpg" width="100%" alt=""/><br/>
       <b>환자 현재 위치</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_04.jpg" width="100%"/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_04.jpg" width="100%" alt=""/><br/>
       <b>AI 분석</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_05.jpg" width="100%"/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_05.jpg" width="100%" alt=""/><br/>
       <b>최근 통화 목록</b>
     </td>
   </tr>
@@ -158,25 +158,25 @@ Spring의 SimpleBroker는 해당 노드 내에서 로컬로 작동하는데, 우
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/메인-로그인X.png" width="100%"/><br/>
+      <img src="./assets/img/메인-로그인X.png" width="100%" alt=""/><br/>
       <b>메인 화면</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/내서재.png" width="100%"/><br/>
+      <img src="./assets/img/내서재.png" width="100%" alt=""/><br/>
       <b>내 서재</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/도서목록.png" width="100%"/><br/>
+      <img src="./assets/img/도서목록.png" width="100%" alt=""/><br/>
       <b>도서 목록</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/책%20모달.gif" width="100%"/><br/>
+      <img src="./assets/img/책%20모달.gif" width="100%" alt=""/><br/>
       <b>책 모달</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/책읽는중.png" width="100%"/><br/>
+      <img src="./assets/img/책읽는중.png" width="100%" alt=""/><br/>
       <b>책 읽기</b>
     </td>
   </tr>
@@ -228,25 +228,25 @@ DB는 PostgreSQL을 사용했고 FastAPI로 만든 추천 시스템을 추가했
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/MS메인.png" width="100%"/><br/>
+      <img src="./assets/img/MS메인.png" width="100%" alt=""/><br/>
       <b>메인 화면</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/MS대시보드.png" width="100%"/><br/>
+      <img src="./assets/img/MS대시보드.png" width="100%" alt=""/><br/>
       <b>관리자용 대시보드</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/MS팀_생성.png" width="100%"/><br/>
+      <img src="./assets/img/MS팀_생성.png" width="100%" alt=""/><br/>
       <b>팀 생성 화면</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/MS팀_페이지.png" width="100%"/><br/>
+      <img src="./assets/img/MS팀_페이지.png" width="100%" alt=""/><br/>
       <b>팀 페이지</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/MS팀원_추천.png" width="100%"/><br/>
+      <img src="./assets/img/MS팀원_추천.png" width="100%" alt=""/><br/>
       <b>팀원 추천</b>
     </td>
   </tr>
@@ -297,21 +297,21 @@ Docker를 사용해 EC2에 Nginx, Spring, Vue, MySQL 컨테이너를 띄워 배�
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20main.png" width="100%"/><br/>
+      <img src="./assets/img/hamgaja%20main.png" width="100%" alt=""/><br/>
       <b>메인 화면</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20search.png" width="100%"/><br/>
+      <img src="./assets/img/hamgaja%20search.png" width="100%" alt=""/><br/>
       <b>관광지 검색</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20plan.png" width="100%"/><br/>
+      <img src="./assets/img/hamgaja%20plan.png" width="100%" alt=""/><br/>
       <b>여행계획 페이지</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20board.png" width="100%"/><br/>
+      <img src="./assets/img/hamgaja%20board.png" width="100%" alt=""/><br/>
       <b>게시판 페이지</b>
     </td>
   </tr>
