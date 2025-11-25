@@ -1,5 +1,9 @@
-# 이도준 상세 포트폴리오
-
+---
+title: PORTFOLIO-DETAIL
+permalink: /resume-detail/
+layout: page
+excerpt: 
+comments: false
 ---
 
 ## 프로젝트 타임라인
