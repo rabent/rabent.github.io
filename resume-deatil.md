@@ -221,7 +221,7 @@ Jsonb 타입을 이렇게 쓰는 것은 잘못 사용했던 것 같고, 추후�
 - 교육생에겐 교육생의 성향과 기술 스택 데이터를 Recsys가 종합적으로 분석하여 최적의 팀을 추천하고 자신의 프로필을 관리할 수 있는 기능을 제공
 
 ## 2. 시스템 아키텍처
-![Matchingssafy-아키텍처.png](assets/img/Matchingssafy-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.png)  
+![Matchingssafy-아키텍처.png](/assets/img/Matchingssafy-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.png)  
 
 Nginx를 통해 3개의 스프링 인스턴스를 로드밸런싱 하고, Hazelcast로 분산 캐싱, 분산 락을 구현함으로써 분산 환경을 구현했습니다.  
 DB는 PostgreSQL을 사용했고 FastAPI로 만든 추천 시스템을 추가했습니다.
