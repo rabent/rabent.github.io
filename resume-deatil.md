@@ -53,29 +53,29 @@ Docker | Nginx | GitHub Actions CI/CD
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949.jpg" width="100%" alt=""/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949.jpg" width="1080" alt=""/><br/>
       <b>환자 행동 분석</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_01.jpg" width="100%" alt=""/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_01.jpg" width="1080" alt=""/><br/>
       <b>환자 건강 분석</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_02.jpg" width="100%" alt=""/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_02.jpg" width="1080" alt=""/><br/>
       <b>환자 행동 통계</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_03.jpg" width="100%" alt=""/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_03.jpg" width="1080" alt=""/><br/>
       <b>환자 현재 위치</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_04.jpg" width="100%" alt=""/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_04.jpg" width="1080" alt=""/><br/>
       <b>AI 분석</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/KakaoTalk_20251124_151507949_05.jpg" width="100%" alt=""/><br/>
+      <img src="./assets/img/KakaoTalk_20251124_151507949_05.jpg" width="1080" alt=""/><br/>
       <b>최근 통화 목록</b>
     </td>
   </tr>
