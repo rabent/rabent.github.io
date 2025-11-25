@@ -9,14 +9,14 @@ comments: false
 ![emoji](/assets/img/1f468-1f4bb.png){: width="50" height="50"}
 # **이도준 | Backend Developer**
 
-> 인프라 구축부터 성능 최적화까지, 서비스의 안정성과 확장성을 고민하는 백엔드 개발자
+> 인프라 구축에서 성능 최적화까지, 더 나은 사용자 경험을 위해 고민하는 백엔드 개발자
 
 ---
 
 ## 📬 Contact & Blog
-+ **Email** | rabent0207@gmail.com
-+ **Blog** | [rabent.github.io](https://rabent.github.io)
-+ **GitHub** | [github.com/rabent](https://github.com/rabent)
++ **Email** \| rabent0207@gmail.com
++ **Blog** \| [rabent.github.io](https://rabent.github.io)
++ **GitHub** \| [github.com/rabent](https://github.com/rabent)
 
 ---
 
@@ -29,7 +29,8 @@ comments: false
 
 ---
 
-## 🎓 경력
+## 🎓 경력  
+
 | 기간 | 내용 |
 |------|------|
 | 2017 ~ 2024 | 홍익대학교 컴퓨터공학과 졸업 |
@@ -40,23 +41,24 @@ comments: false
 
 ## 🛠 기술 스택
 
-| 분류 | 상 | 중 | 하 |  
-|------|---|---|---|  
-| **Backend** | Spring, Spring Boot, JPA, WebRTC | - | - |  
-| **Database** | PostgreSQL | MySQL | - |  
-| **Cache & MQ** | - | Redis, Hazelcast, RabbitMQ | - |  
-| **Infrastructure** | Docker, Docker Compose, Docker Swarm | Jenkins, Nginx, Traefik | - |  
-| **Monitoring** | Prometheus, Grafana, Loki | - | - |  
-| **Testing** | - | JUnit, k6 | - |  
-| **Language** | Java | C++ | - |  
-| **Others** | - | Jira, Notion | - |  
+| 분류 | 중상                                   | 중 | 중하 |  
+|------|--------------------------------------|---|----|  
+| **Backend** | Spring, Spring Boot, JPA, WebRTC     | - | -  |  
+| **Database** | PostgreSQL                           | MySQL | -  |  
+| **Cache & MQ** | -                                    | Redis, Hazelcast, RabbitMQ | -  |  
+| **Infrastructure** | Docker, Docker Compose, Docker Swarm | Jenkins, Nginx, Traefik | -  |  
+| **Monitoring** | Prometheus, Grafana, Loki            | - | -  |  
+| **Testing** | -                                    | JUnit, k6 | -  |  
+| **Language** | Java                                 | C++ | C# |  
+| **Others** | -                                    | Jira, Notion | -  |  
 
 ---
 
 ## 💼 프로젝트 경험
 
 ### 🏥 Ongil (2025.10 - 2025.11)
-`Docker Swarm` `Prometheus` `Grafana` `Loki` `Jenkins` `k6`
+![Docker Swarm](https://img.shields.io/badge/Docker_Swarm-2496ED?style=flat-square&logo=docker&logoColor=white) ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) ![Loki](https://img.shields.io/badge/Loki-2C3239?style=flat-square&logo=grafana&logoColor=white) ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white) ![k6](https://img.shields.io/badge/k6-7D64FF?style=flat-square&logo=k6&logoColor=white)
+
 
 **치매 환자 모니터링 헬스케어 플랫폼**
 
@@ -71,7 +73,7 @@ comments: false
 ---
 
 ### 📚 Magic Bug (2025.08 - 2025.09)
-`Prometheus` `Loki` `Grafana` `Nginx` `Jenkins`
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) ![Loki](https://img.shields.io/badge/Loki-2C3239?style=flat-square&logo=grafana&logoColor=white) ![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white) ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white)
 
 **발달이 느린 아이들을 위한 인터랙션 동화책 플랫폼**
 
@@ -82,7 +84,7 @@ comments: false
 ---
 
 ### 👥 Matching-SSAFY (2025.07 - 2025.08)
-`Hazelcast` `Docker Compose` `Jenkins` `Sonarqube`
+![Hazelcast](https://img.shields.io/badge/Hazelcast-4285F4?style=flat-square&logo=hazelcast&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white) ![SonarQube](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=sonarqube&logoColor=white)
 
 **팀 빌딩 플랫폼**
 
@@ -95,7 +97,7 @@ comments: false
 ---
 
 ### ✈️ Hamgaja (2025.05 - 2025.06)
-`Docker` `Nginx` `GitHub Actions`
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 
 **여행 계획 웹 애플리케이션**
 
@@ -134,12 +136,13 @@ comments: false
 
 ## 🏆 주요 성과 요약
 
-### 📈 성능 최적화
-| 항목 | 개선 내용 | 결과 |
-|------|----------|------|
+### 📈 성능 최적화  
+
+| 항목 | 개선 내용 | 결과                         |
+|------|----------|----------------------------|
 | 대시보드 응답시간 | Hazelcast 분산 캐싱 도입 | **97% 개선** (1080ms → 38ms) |
-| 3D 모델 로딩 | Nginx 정적 파일 서빙 최적화 | **86% 개선** (7초 → 1초) |
-| 서버 처리량 | 커넥션 풀 최적화 | **55% 향상** (530 → 650 RPS) |
+| 3D 모델 로딩 | Nginx 정적 파일 서빙 최적화 | **86% 개선** (7초 → 1초)       |
+| 서버 처리량 | 커넥션 풀 최적화 | **22% 향상** (530 → 650 RPS) |
 
 ### 🔧 인프라 & 모니터링
 - Docker Swarm 3노드 클러스터 설계 및 운영
