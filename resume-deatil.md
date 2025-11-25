@@ -53,29 +53,35 @@ Docker | Nginx | GitHub Actions CI/CD
 <table>
   <tr>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949.jpg](assets/img/KakaoTalk_20251124_151507949.jpg)
+      ![KakaoTalk_20251124_151507949.jpg](assets/img/KakaoTalk_20251124_151507949.jpg)  
+
       <b>환자 행동 분석</b>
     </td>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_01.jpg](assets/img/KakaoTalk_20251124_151507949_01.jpg)
+      ![KakaoTalk_20251124_151507949_01.jpg](assets/img/KakaoTalk_20251124_151507949_01.jpg)  
+
       <b>환자 건강 분석</b>
     </td>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_02.jpg](assets/img/KakaoTalk_20251124_151507949_02.jpg)
+      ![KakaoTalk_20251124_151507949_02.jpg](assets/img/KakaoTalk_20251124_151507949_02.jpg)  
+
       <b>환자 행동 통계</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_03.jpg](assets/img/KakaoTalk_20251124_151507949_03.jpg)
+      ![KakaoTalk_20251124_151507949_03.jpg](assets/img/KakaoTalk_20251124_151507949_03.jpg)  
+
       <b>환자 현재 위치</b>
     </td>
     <td width="33%" align="center">
       ![KakaoTalk_20251124_151507949_04.jpg](assets/img/KakaoTalk_20251124_151507949_04.jpg)
+
       <b>AI 분석</b>
     </td>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_05.jpg](assets/img/KakaoTalk_20251124_151507949_05.jpg)
+      ![KakaoTalk_20251124_151507949_05.jpg](assets/img/KakaoTalk_20251124_151507949_05.jpg)  
+
       <b>최근 통화 목록</b>
     </td>
   </tr>
@@ -108,6 +114,7 @@ Docker Swarm - K8s에 비하면 기능적으로는 확실히 약하지만 기본
 - 문제: Voip를 통해 전화를 걸 때 어떤 때에는 상대방에게 전화 신호가 가지만 어떤 때에는 상대방에게 전화 신호가 가지 않는 문제 
 - 원인: 
 ![통화.drawio.png](assets/img/%ED%86%B5%ED%99%94.drawio.png)  
+
 Spring의 SimpleBroker는 해당 노드 내에서 로컬로 작동하는데, 우리 프로젝트의 아키텍쳐에서는 서버를 3개를 사용하기 때문에 서로 다른 서버에 웹소켓이 연결되어 시그널링을 제대로 받을 수 없어 발생한 문제였다.
 가끔 운이 좋아 같은 노드에서 웹소켓 통신이 연결됬을 땐 작동했던 것이다. 이런 분산 환경과 동시성 제어에 대한 경험이 많이 없어 발생했던 문제였다.
 - 해결: RabbitMQ를 추가하여 모든 노드들이 메시지를 주고 받을 수 있도록 구현하여 해결.
