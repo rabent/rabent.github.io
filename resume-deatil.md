@@ -107,8 +107,8 @@ Docker Swarm - K8s에 비하면 기능적으로는 확실히 약하지만 기본
 
 ### 5-2.시그널링 메세지 유실 문제
 - 문제: Voip를 통해 전화를 걸 때 어떤 때에는 상대방에게 전화 신호가 가지만 어떤 때에는 상대방에게 전화 신호가 가지 않는 문제 
-- 원인: 
-![통화.drawio.png](assets/img/%ED%86%B5%ED%99%94.drawio.png)  
+- 원인:
+![통화.drawio.png](/assets/img/%ED%86%B5%ED%99%94.drawio.png)  
 
 Spring의 SimpleBroker는 해당 노드 내에서 로컬로 작동하는데, 우리 프로젝트의 아키텍쳐에서는 서버를 3개를 사용하기 때문에 서로 다른 서버에 웹소켓이 연결되어 시그널링을 제대로 받을 수 없어 발생한 문제였다.
 가끔 운이 좋아 같은 노드에서 웹소켓 통신이 연결됬을 땐 작동했던 것이다. 이런 분산 환경과 동시성 제어에 대한 경험이 많이 없어 발생했던 문제였다.
@@ -160,25 +160,25 @@ Spring의 SimpleBroker는 해당 노드 내에서 로컬로 작동하는데, 우
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/메인-로그인X.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/메인-로그인X.png" width="100%" alt=""/><br/>
       <b>메인 화면</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/내서재.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/내서재.png" width="100%" alt=""/><br/>
       <b>내 서재</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/도서목록.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/도서목록.png" width="100%" alt=""/><br/>
       <b>도서 목록</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/책%20모달.gif" width="100%" alt=""/><br/>
+      <img src="/assets/img/책%20모달.gif" width="100%" alt=""/><br/>
       <b>책 모달</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/책읽는중.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/책읽는중.png" width="100%" alt=""/><br/>
       <b>책 읽기</b>
     </td>
   </tr>
@@ -230,25 +230,25 @@ DB는 PostgreSQL을 사용했고 FastAPI로 만든 추천 시스템을 추가했
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/MS메인.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/MS메인.png" width="100%" alt=""/><br/>
       <b>메인 화면</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/MS대시보드.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/MS대시보드.png" width="100%" alt=""/><br/>
       <b>관리자용 대시보드</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/MS팀_생성.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/MS팀_생성.png" width="100%" alt=""/><br/>
       <b>팀 생성 화면</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/MS팀_페이지.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/MS팀_페이지.png" width="100%" alt=""/><br/>
       <b>팀 페이지</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/MS팀원_추천.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/MS팀원_추천.png" width="100%" alt=""/><br/>
       <b>팀원 추천</b>
     </td>
   </tr>
@@ -299,21 +299,21 @@ Docker를 사용해 EC2에 Nginx, Spring, Vue, MySQL 컨테이너를 띄워 배�
 <table>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20main.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/hamgaja%20main.png" width="100%" alt=""/><br/>
       <b>메인 화면</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20search.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/hamgaja%20search.png" width="100%" alt=""/><br/>
       <b>관광지 검색</b>
     </td>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20plan.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/hamgaja%20plan.png" width="100%" alt=""/><br/>
       <b>여행계획 페이지</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      <img src="./assets/img/hamgaja%20board.png" width="100%" alt=""/><br/>
+      <img src="/assets/img/hamgaja%20board.png" width="100%" alt=""/><br/>
       <b>게시판 페이지</b>
     </td>
   </tr>
