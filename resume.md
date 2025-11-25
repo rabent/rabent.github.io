@@ -25,25 +25,62 @@ comments: false
 
 ## 경력
 ---
-+ 홍익대학교 컴퓨터공학과 재학  (2017~)
-+ 대학교 내 게임 제작 동아리 EXP에서 서브프로그래머로 프로젝트 참여
-+ 대학교 졸업 프로젝트 '젬스톤 서바이버'의 기획, 메인프로그래머로 활동  
++ 홍익대학교 컴퓨터공학과 재학  (2017~2024)
++ 대학교 내 게임 제작 동아리 EXP에서 서브프로그래머로 프로젝트 참여(2023.03 ~ 2023.08) 
 + SSAFY 입과(2025~)  
 
 ## 기술 스택
 ---
-- Unity Engine
-- C++
-- C#  
-- Mysql  
-- JAVA  
-- Spring  
-- Docker  
-- Jenkins  
-
+| 분류 | 중상                                   | 중                        | 중하   |
+|------|--------------------------------------|--------------------------|------|
+| **Backend** | Spring , Spring Boot, JPA, WebRTC    | -                        | -    |
+| **Database** | PostgreSQL                           | MySQL                    | -    |
+| **Cache & MQ** | -                                    | Redis, Hazelcast, RabbitMQ |-|
+| **Infrastructure** | Docker, Docker Compose, Docker Swarm | Jenkins, Nginx, Traefik  | -    |
+| **Monitoring** | Prometheus, Grafana, Loki            | -                        | -    |
+| **Testing** | -                                    | JUnit, k6                | -    |
+| **Language** | Java                                 | C++                      | C#   |
+| **Others** | -                                    | Jira, Notion             | Unity Engine |
 
 ## 프로젝트 경험
 ---
+### Ongil (2025.10 - 2025.11)
+**치매 환자 모니터링 헬스케어 플랫폼**
+- Docker Swarm 3노드 클러스터 운영
+- Prometheus/Grafana/Loki 통합 모니터링
+- Jenkins + Sonarqube 코드 품질 관리
+- k6 성능 테스트 결과 650 RPS 처리 가능
+- 이전 프로젝트들의 경험을 모두 활용한 인프라 구축
+- [[리커버리 부하테스트]](https://maize-snipe-6ab.notion.site/2b1834b8139180b6ba22c3f3b2ce59e4?pvs=74)
+- [[과부하 테스트]](https://maize-snipe-6ab.notion.site/2-2b2834b8139180508749c4d9c1c1acfe)
+
+### Magic Bug (2025.08 - 2025.09)
+**발달이 느린 아이들을 위한 인터랙션 동화책 플랫폼**
+- Prometheus + Loki + Grafana 모니터링 스택 첫 도입
+- Nginx 최적화로 3D 모델 로딩 속도 86% 개선 (7초→1초)
+- Jenkins CI/CD 파이프라인 구축
+
+### Matching-SSAFY (2025.07 - 2025.08)
+**팀 빌딩 플랫폼**
+- Hazelcast 분산 캐싱으로 97% 성능 개선
+- Docker Compose 기반 멀티 인스턴스 환경 구성 (3개)
+- Jenkins + Sonarqube 코드 품질 관리
+- [[블로그 내 포스팅-회고]](https://rabent.github.io/%EA%B3%B5%ED%86%B5-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0/)  
+- [[블로그 내 포스팅-트러블슈팅]](https://rabent.github.io/%EA%B3%A0%EB%AF%BC%EB%93%A4/)
+
+
+### Hamgaja (2025.05 - 2025.06)
+**여행 계획 웹 애플리케이션**
+- Docker 멀티 스테이지 빌드
+- Nginx 리버스 프록시
+- GitHub Actions CI/CD
+- [[블로그 내 포스팅]](https://rabent.github.io/%EA%B4%80%ED%86%B5-%EC%A0%95%EB%A6%AC/)  
+- [[Github 링크]](https://github.com/rabent/Hamgaja)
+
+<details>
+<summary>기타 게임 프로젝트(접기/펼치기)</summary>
+<div markdown="1">
+
 Oh-Mok!
 - Photon 서버를 이용한 1대1 오목 보드게임
 - 구글 플레이스토어 출시
@@ -51,46 +88,43 @@ Oh-Mok!
 - 서버 : Photon
 - 개발 기간 : 8개월
 - 관련 링크 :   
-[[블로그 내 포스팅]](https://rabent.github.io/Oh-Mok!/)  
-[[Github 링크]](https://github.com/nilbace/Oh-MOK)  
-[[Play store 링크]](https://play.google.com/store/apps/details?id=com.ExPStudio.magical)
+  [[블로그 내 포스팅]](https://rabent.github.io/Oh-Mok!/)  
+  [[Github 링크]](https://github.com/nilbace/Oh-MOK)  
+  [[Play store 링크]](https://play.google.com/store/apps/details?id=com.ExPStudio.magical)
 
-젬스톤 서바이버  
+젬스톤 서바이버
 - 정통 핵앤슬래시의 시스템을 접목한 로그라이트 핵앤슬래시 게임
 - 홍익대학교 졸업프로젝트
-- 클라이언트 : Unity Engine  
-- 개발 기간 : 10개월  
+- 클라이언트 : Unity Engine
+- 개발 기간 : 10개월
 - 관련 링크 :  
-[[블로그 내 포스팅]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
-[[Github 링크]](https://github.com/rabent/gemstone)   
+  [[블로그 내 포스팅]](https://rabent.github.io/%EC%A0%AC%EC%8A%A4%ED%86%A4-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%84-%EB%A6%AC%EB%B7%B0/)  
+  [[Github 링크]](https://github.com/rabent/gemstone)
 
-Hamgaja!  
-- 관광지를 검색하고 여행 계획을 수립할 수 있는 여행 정보 플랫폼  
-- Spring, Vue를 기반으로 Docker, nginx 등을 사용하여 제작  
-- 실무에서 자주 사용되는 툴을 실제로 사용해보기 위한 프로젝트  
-- 개발 기간 : 2개월  
-- 관련 링크 :  
-[[블로그 내 포스팅]](https://rabent.github.io/%EA%B4%80%ED%86%B5-%EC%A0%95%EB%A6%AC/)  
-[[Github 링크]](https://github.com/rabent/Hamgaja)  
+</div>
+</details>
 
-Matching-SSAFY  
-- 부트캠프 내 원할한 팀 빌딩을 돕고 관리자가 통계를 한 눈에 볼 수 있도록 하는 플랫폼  
-- 기존의 Github action을 통한 CI/CD에서 더욱 확장된 Jenkins를 통한 CI/CD로 발전  
-- 개발 기간 : 2개월  
-- 관련 링크 :  
-[[블로그 내 포스팅-회고]](https://rabent.github.io/%EA%B3%B5%ED%86%B5-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0/)  
-[[블로그 내 포스팅-트러블슈팅]](https://rabent.github.io/%EA%B3%A0%EB%AF%BC%EB%93%A4/)  
+## 주요 성과 요약
+---
+### 성능 최적화
+- 캐싱 도입으로 대시보드 응답시간 97% 개선 (1080ms→38ms)
+- Nginx 최적화로 3D 모델 로딩 86% 개선 (7초→1초)
+- 커넥션 풀 최적화로 처리 한계 55% 향상 (530→650 RPS)
 
+### 인프라 & 모니터링
+- Docker Swarm 3노드 클러스터 운영
+- Prometheus + Grafana + Loki 통합 모니터링 구축
+- Jenkins에 Sonarqube를 통합한 CI/CD 파이프라인 구축
+- k6 성능 테스트 환경 구축 및 병목 분석
 
-## 활동 내용
----  
+### 협업 문화 개선
+- Git flow 브랜치 전략 도입으로 체계적인 구조, 안정적인 배포
+- Jira 및 Git 커밋, MR에 템플릿화 된 컨벤션 도입
+- 인프라 추상화로 팀원이 기능 개발에 집중 가능하도록 지원
 
 ### 성능 개선  
 
-**대쉬보드 기능 성능 개선**  
-+ 문제 : 대쉬보드 기능은 통계를 내야 하기 때문에 쿼리의 양이 큰데 비해 사용자의 접근이 잦아 서버 부하가 커지는 문제.  
-+ 해결 : Spring cache와 통합된 Hazelcast의 분산 캐싱을 통해 5분 단위의 캐시를 걸어 해결.  
-+ 결과 : 테스트 결과 캐시 미스 시 1080ms 정도의 응답 시간이 캐시 히트 이후부턴 38ms 가량으로 획기적으로 감소.  
+  
 
 ### 기술적 의사결정 및 문제해결  
 
@@ -115,11 +149,11 @@ Matching-SSAFY
 
 &nbsp;  
 
-**분산 캐싱을 구현하는 툴 문제**  
-+ 문제 : 현재 서버에 Jenkins, Sonarqube, PostgreSQL 등 많은 것이 올라가 있음에도 분산 캐싱 툴을 추가해야 하는 문제  
-+ 고민 : 실무에서 많이 사용되고 다양하고 강력한 기능을 제공하지만 서버에 추가로 띄워야 하는 Redis VS JVM 내부에 노드를 생성하는 구조로 작동하여 추가로 컨테이너를 띄우지 않아도 되지만 마이너하고 정보가 많이 없는 Hazelcast  
-+ 선택 : Redis의 경우 러닝커브도 어느정도 있고, 여기서 추가로 컨테이너를 더 띄우고 싶지 않아 Hazelcast로 결정. 프로젝트 규모가 조금 더 컸다면 Redis를 선택했겠지만 현재 스프링 인스턴스가 3개 뿐인 점을 감안해서 결정.  
-+ 결과 : 분산 캐싱, 분산 락이 테스트 결과 Hazelcast로도 인스턴스끼리 잘 작동하는 것을 확인. 현재 서비스 규모가 크지 않고 그에 따라 캐시 규모도 크지 않아 JVM 내부의 힙 메모리를 사용하는 Hazelcast의 구조로도 무리 없이 잘 작동하는 것을 확인. Redis의 러닝커브, 컨테이너가 추가됨으로써 생기는 추가적인 관리의 복잡함 등을 감안하면 실질적인 오버헤드가 비슷하더라도 더 나은 선택을 했다고 생각함.  
+**분산 캐싱 툴 선택**  
++ 문제 : 단일 서버에 Jenkins, Sonarqube, PostgreSQL 등 이미 많은 컨테이너가 올라가 있음에도 분산 캐싱 툴을 추가해야 하는 문제  
++ 고민 : 실무에서 많이 사용되는 기술이고 다양하고 강력한 기능을 제공하지만 서버에 추가로 띄워야 하는 Redis VS JVM 내부에 노드를 생성하는 구조로 작동하여 추가로 컨테이너를 띄우지 않아도 되지만 마이너하고 정보가 많이 없는 Hazelcast  
++ 선택 : 이번 프로젝트에서는 분산 환경을 처음으로 구성해봤기 때문에 운영 복잡도를 더 늘리고 싶지 않아 별도의 설정과 컨테이너, 러닝커브가 필요한 Redis 대신 Spring cache와 통합하여 라이브러리로 바로 사용이 가능한 Hazelcast로 결정. 프로젝트 규모가 조금 더 컸다면 좀 더 강력한 Redis를 선택했겠지만 현재 스프링 인스턴스가 3개 뿐이고 분산 캐싱, 분산 락 기능만이 필요한 점을 감안해서 결정.  
++ 결과 : 분산 캐싱, 분산 락이 테스트 결과 Hazelcast로도 인스턴스끼리 잘 작동하는 것을 확인(캐시 미스 시 1080ms → 캐시 히트 38ms (97% 개선)). 현재 서비스 규모가 크지 않고 그에 따라 캐시 규모도 크지 않아 JVM 내부의 힙 메모리를 사용하는 Hazelcast의 구조로도 무리 없이 잘 작동하는 것을 확인. 운영 복잡도 면에서 실질적인 오버헤드가 비슷하더라도 더 나은 선택이었다고 생각.  
 
 &nbsp;  
 
