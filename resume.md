@@ -33,14 +33,14 @@ comments: false
 ---
 | 분류 | 중상 | 중 | 중하 |
 |------|------|------|------|
-| **Backend** | Spring, Spring Boot, JPA, WebRTC | - | - |
-| **Database** | PostgreSQL | MySQL | - |
-| **Cache & MQ** | - | Redis, Hazelcast, RabbitMQ | - |
-| **Infrastructure** | Docker, Docker Compose, Docker Swarm | Jenkins, Nginx, Traefik | - |
-| **Monitoring** | Prometheus, Grafana, Loki | - | - |
-| **Testing** | - | JUnit, k6 | - |
-| **Language** | Java | C++ | C# |
-| **Others** | - | Jira, Notion | Unity Engine |
+| Backend | Spring, Spring Boot, JPA, WebRTC | - | - |
+| Database | PostgreSQL | MySQL | - |
+| Cache & MQ | - | Redis, Hazelcast, RabbitMQ | - |
+| Infrastructure | Docker, Docker Compose, Docker Swarm | Jenkins, Nginx, Traefik | - |
+| Monitoring | Prometheus, Grafana, Loki | - | - |
+| Testing | - | JUnit, k6 | - |
+| Language | Java | C++ | C# |
+| Others | - | Jira, Notion | Unity Engine |
 
 ## 프로젝트 경험
 ---
