@@ -49,39 +49,34 @@ Docker | Nginx | GitHub Actions CI/CD
 - Jenkins CI/CD 파이프라인에 Sonarqube를 통합하여 코드 품질을 관리하였고, Prometheus+Grafana+Loki의 조합으로 로그를 중앙화하고 서버의 상태를 실시간으로 파악할 수 있도록 했습니다.
 - 이후 시그널링 메세지 유실 문제 해결, 재시도 로직을 통한 안정성 확보를 위해 RabbitMQ를 추가하여 안정성을 보강했습니다.
 
-## 3. 주요 화면
+## 3. 주요 화면  
+
 <table>
   <tr>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949.jpg](assets/img/KakaoTalk_20251124_151507949.jpg)  
-
+      <img src="/assets/img/KakaoTalk_20251124_151507949.jpg" width="100%"/><br/>
       <b>환자 행동 분석</b>
     </td>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_01.jpg](assets/img/KakaoTalk_20251124_151507949_01.jpg)  
-
+      <img src="/assets/img/KakaoTalk_20251124_151507949_01.jpg" width="100%"/><br/>
       <b>환자 건강 분석</b>
     </td>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_02.jpg](assets/img/KakaoTalk_20251124_151507949_02.jpg)  
-
+      <img src="/assets/img/KakaoTalk_20251124_151507949_02.jpg" width="100%"/><br/>
       <b>환자 행동 통계</b>
     </td>
   </tr>
   <tr>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_03.jpg](assets/img/KakaoTalk_20251124_151507949_03.jpg)  
-
+      <img src="/assets/img/KakaoTalk_20251124_151507949_03.jpg" width="100%"/><br/>
       <b>환자 현재 위치</b>
     </td>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_04.jpg](assets/img/KakaoTalk_20251124_151507949_04.jpg)
-
+      <img src="/assets/img/KakaoTalk_20251124_151507949_04.jpg" width="100%"/><br/>
       <b>AI 분석</b>
     </td>
     <td width="33%" align="center">
-      ![KakaoTalk_20251124_151507949_05.jpg](assets/img/KakaoTalk_20251124_151507949_05.jpg)  
-
+      <img src="/assets/img/KakaoTalk_20251124_151507949_05.jpg" width="100%"/><br/>
       <b>최근 통화 목록</b>
     </td>
   </tr>
